@@ -1,143 +1,79 @@
 
-      /* GENERAL RESET */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
-}
+ <!DOCTYPE html>
+<html lang="ur" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>گوادر ڈیجیٹل سروسز (Gwadar Digital Services)</title>
 
-/* BODY */
-body {
-    background: #F4F6F8;
-    color: #333;
-    line-height: 1.6;
-}
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
-/* HEADER */
-header {
-    background: #0A3D62;
-    color: white;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 30px;
-    flex-wrap: wrap;
-}
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-header .logo {
-    font-weight: bold;
-    font-size: 18px;
-}
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
-header nav a {
-    color: white;
-    text-decoration: none;
-    margin-left: 20px;
-    font-weight: 500;
-    transition: 0.3s;
-}
+<!-- HEADER / NAVBAR -->
+<header>
+    <div class="logo">🇵🇰 گوادر ڈیجیٹل سروسز</div>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="faqs.html">FAQs</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+</header>
 
-header nav a:hover {
-    color: #1E90A6;
-}
+<!-- HERO SECTION -->
+<section class="hero">
+    <h1>اپنی مطلوبہ سروس منتخب کریں</h1>
+    <p>گوادر ڈیجیٹل سروسز پورٹل میں خوش آمدید۔ اپنی ضروریات کے مطابق سروس منتخب کریں۔</p>
+</section>
 
-/* HERO SECTION */
-.hero {
-    text-align: center;
-    padding: 60px 20px;
-    background: linear-gradient(to right, #0A3D62, #1E90A6);
-    color: white;
-}
+<!-- SERVICES CARDS -->
+<section class="services">
+    <div class="service-card">
+        <i class="fas fa-tint"></i>
+        <h3>واٹر ٹینکر کی درخواست</h3>
+        <p>صفا پانی کا ٹینکر آن لائن درخواست کریں۔</p>
+        <a href="Tanker_request.html">درخواست کریں</a>
+    </div>
 
-.hero h1 {
-    margin-bottom: 15px;
-    font-size: 28px;
-}
+    <div class="service-card">
+        <i class="fas fa-bullhorn"></i>
+        <h3>شکایات کا اندراج</h3>
+        <p>بجلی، پانی یا دیگر شکایات کا اندراج کریں۔</p>
+        <a href="Complaint_timing.html">اب اندراج کریں</a>
+    </div>
 
-.hero p {
-    font-size: 16px;
-}
+    <div class="service-card">
+        <i class="fas fa-plug"></i>
+        <h3>نئے کنکشن کی درخواست</h3>
+        <p>نیا کنکشن آن لائن درخواست کریں۔</p>
+        <a href="Connection_request.html">درخواست کریں</a>
+    </div>
 
-/* SERVICES CARDS */
-.services {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-    padding: 50px 20px;
-}
+    <div class="service-card">
+        <i class="fas fa-file-invoice"></i>
+        <h3>بل کا اسٹیٹس معلوم کریں</h3>
+        <p>اپنے بل کی تفصیل آن لائن دیکھیں۔</p>
+        <a href="bill_status.html">چیک کریں</a>
+    </div>
+</section>
 
-.service-card {
-    background: white;
-    padding: 25px;
-    width: 250px;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    text-align: center;
-    transition: transform 0.3s;
-}
+<!-- HELPLINE -->
+<section class="helpline">
+    <p><strong>مدد کے لیے رابطہ کریں:</strong> <a href="tel:+923456789012">+92 345 6789012</a></p>
+    <p>یہ سروس 24/7 دستیاب ہے۔</p>
+</section>
 
-.service-card i {
-    font-size: 40px;
-    color: #1E90A6;
-    margin-bottom: 15px;
-}
+<!-- FOOTER -->
+<footer>
+    <p>© 2026 Gwadar Digital Services | University Project</p>
+</footer>
 
-.service-card h3 {
-    margin-bottom: 10px;
-}
-
-.service-card p {
-    font-size: 14px;
-    margin-bottom: 15px;
-}
-
-.service-card a {
-    display: inline-block;
-    padding: 8px 20px;
-    border-radius: 5px;
-    background: #1E90A6;
-    color: white;
-    text-decoration: none;
-    font-weight: 500;
-    transition: 0.3s;
-}
-
-.service-card:hover {
-    transform: translateY(-5px);
-}
-
-.service-card a:hover {
-    background: #0A3D62;
-}
-
-/* HELPLINE */
-.helpline {
-    text-align: center;
-    margin: 40px 0;
-    padding: 15px;
-    border: 1px dashed #dc3545;
-    border-radius: 5px;
-    color: #dc3545;
-}
-
-/* FOOTER */
-footer {
-    background: #0A3D62;
-    color: white;
-    text-align: center;
-    padding: 15px;
-}
-
-/* RESPONSIVE */
-@media screen and (max-width: 768px) {
-    .services {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    header nav {
-        margin-top: 10px;
-    }
-}
+</body>
+</html>
