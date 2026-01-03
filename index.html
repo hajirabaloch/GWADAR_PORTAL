@@ -1,40 +1,20 @@
-<!DOCTYPE html>
-<html lang="ur" dir="rtl"> <head>
+
+ <!DOCTYPE html>
+<html lang="ur" dir="rtl"> 
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>گوادر ڈیجیٹل سروسز | مین ڈیش بورڈ</title>
-    
+    <title>گوادر ڈیجیٹل سروسز | مین پیج</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     
     <style>
-        /* BASE STYLES */
-        body { 
-            font-family: 'Arial', sans-serif; 
-            background-color: #f4f4f4; 
-            text-align: center; 
-            padding-top: 50px; 
-            direction: rtl; /* Ensure whole page is RTL */
-        }
-        .container { 
-            background: #fff; 
-            padding: 30px; 
-            border-radius: 12px; /* Slightly smoother corners */
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); 
-            max-width: 750px; 
-            margin: 0px auto; 
-        }
-        h1 { 
-            color: #007bff; 
-            margin-bottom: 25px;
-            font-size: 26px; 
-        }
-        p { 
-            margin-bottom: 20px; 
-            font-size: 16px; 
-            line-height: 1.6;
-        }
+        /* CSS jo aap ne bheja tha (All styles for index, header, cards) */
+        body { font-family: Arial, sans-serif; background-color: #f4f4f4; text-align: center; padding-top: 20px; }
+        .container { background: #fff; padding: 30px; border-radius: 8px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); max-width: 800px; margin: 30px auto; }
+        h1 { color: #007bff; margin-bottom: 20px;}
+        p { margin-bottom: 20px; font-size: 16px; }
         
-        /* UTILITY NAVIGATION (Top Links) */
+        /* Navigation/Utility Bar Styles */
         .utility-nav {
             display: flex;
             justify-content: center;
@@ -45,89 +25,87 @@
         .utility-nav a {
             color: #007bff;
             text-decoration: none;
-            padding: 8px 15px;
+            padding: 8px 12px;
             border: 1px solid #007bff;
-            border-radius: 25px; /* Pill shape for links */
-            transition: all 0.3s;
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s;
             font-size: 15px;
-            font-weight: 600;
+            font-weight: bold;
+            text-wrap: nowrap; /* Prevents wrapping on small links */
         }
         .utility-nav a:hover {
             background-color: #007bff;
             color: white;
         }
-        .utility-nav i {
-            margin-left: 5px; /* Space for icons in links */
-        }
 
-        /* MAIN SERVICE BUTTONS */
         .link-button {
-            display: flex; /* Use Flex for better alignment */
+            display: flex; /* Flexbox for icon and text alignment */
             align-items: center;
-            justify-content: flex-end; /* Align content to the right (RTL) */
+            justify-content: flex-end; /* Text/Icon alignment to the right for RTL */
             width: 90%;
             margin: 15px auto;
-            padding: 18px 20px; /* Increased padding */
-            background-color: #28a745; /* GDA Green */
+            padding: 15px;
+            background-color: #28a745; /* Green color for GDA theme */
             color: white;
             text-decoration: none;
-            border-radius: 8px;
-            font-size: 19px;
-            transition: background-color 0.3s, transform 0.2s;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            border-radius: 5px;
+            font-size: 18px;
+            transition: background-color 0.3s;
+            text-align: right;
         }
         .link-button i {
             margin-left: 15px; /* Space between icon and text */
-            font-size: 28px; /* Larger icons */
+            font-size: 24px;
         }
         .link-button:hover { 
             background-color: #1e7e34; 
-            transform: translateY(-2px); /* Slight lift on hover */
         }
 
-        /* HELPLINE */
         .helpline {
-            margin-top: 35px;
-            font-size: 17px;
-            color: #dc3545; 
+            margin-top: 30px;
+            font-size: 16px;
+            color: #dc3545; /* Red for emphasis */
             font-weight: bold;
-            padding: 15px;
-            border: 2px dashed #dc3545;
-            border-radius: 10px;
+            padding: 10px;
+            border: 1px dashed #dc3545;
+            border-radius: 5px;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1><i class="fa-solid fa-city me-2"></i> گوادر ڈیجیٹل سروسز (Gwadar Digital Services)</h1>
+        <h1><i class="fa-solid fa-gauge-high"></i> گوادر ڈیجیٹل سروسز (Gwadar Digital Services)</h1>
         
         <div class="utility-nav">
-            <a href="about.html"><i class="fa-solid fa-info-circle"></i> ہمارے بارے میں</a>
-            <a href="faqs.html"><i class="fa-solid fa-question-circle"></i> اکثر پوچھے جانے والے سوالات</a>
+            <a href="about.html"><i class="fa-solid fa-info-circle me-1"></i> ہمارے بارے میں</a>
+            
+            <a href="FAQs.html"><i class="fa-solid fa-question-circle me-1"></i> اکثر پوچھے جانے والے سوالات</a> 
+            
+            <a href="#" style="color: #dc3545; border-color: #dc3545;"><i class="fa-solid fa-user-lock me-1"></i> ایڈمن لاگ ان</a>
         </div>
         
         <p>اپنی مطلوبہ سروس منتخب کریں۔ (Please select your required service.)</p>
         <hr>
 
         <a href="Tanker_request.html" class="link-button">
-            <i class="fa-solid fa-truck-droplet"></i> واٹر ٹینکر کی درخواست (Water Tanker Request)
+            <i class="fa-solid fa-truck-droplet"></i> 💧 واٹر ٹینکر کی درخواست (Water Tanker Request)
         </a>
         
         <a href="Complaint_timing.html" class="link-button">
-            <i class="fa-solid fa-exclamation-triangle"></i> شکایات کا اندراج (Lodge a Complaint)
+            <i class="fa-solid fa-exclamation-triangle"></i> 📢 شکایات کا اندراج (Lodge a Complaint)
         </a>
         
         <a href="Connection_request.html" class="link-button">
-            <i class="fa-solid fa-bezier-curve"></i> نئے کنکشن کی درخواست (New Connection Request)
+            <i class="fa-solid fa-bezier-curve"></i> 🔌 نئے کنکشن کی درخواست (New Connection Request)
         </a>
         
         <a href="bill_status.html" class="link-button">
-            <i class="fa-solid fa-file-invoice-dollar"></i> بل کا اسٹیٹس معلوم کریں (Check Bill Status)
+            <i class="fa-solid fa-file-invoice-dollar"></i> 🧾 بل کا اسٹیٹس معلوم کریں (Check Bill Status)
         </a>
         
         <div class="helpline">
-            <p><strong><i class="fa-solid fa-headset me-2"></i> مدد کے لیے رابطہ کریں (Helpline Contact):</strong> <a href="tel:+923456789012" style="color: inherit; text-decoration: none;">+92 345 6789012</a></p>
-            <p style="font-size: 14px; color: #6c757d; margin-bottom: 0;">(This service is available 24/7.) یہ سروس 24/7 دستیاب ہے۔</p>
+            <p><strong>مدد کے لیے رابطہ کریں (Helpline Contact):</strong> <a href="tel:+923456789012" style="color: inherit; text-decoration: none;">+92 345 6789012</a></p>
+            <p style="font-size: 14px; color: #6c757d;">یہ سروس 24/7 دستیاب ہے۔ (This service is available 24/7.)</p>
         </div>
         
     </div>
