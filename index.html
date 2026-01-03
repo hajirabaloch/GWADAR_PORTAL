@@ -1,205 +1,113 @@
-<!DOCTYPE html>
+
+ <!DOCTYPE html>
 <html lang="ur" dir="rtl"> 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>گوادر سمارٹ سروسز گیٹ وے - Gwadar Smart Services Gateway</title>
-    
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    
+    <title>گوادر ڈیجیٹل سروسز | مین پیج</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     
     <style>
-        :root {
-            --gwadar-smart-blue: #0A3D62; /* Official Dark Blue */
-            --gwadar-accent-green: #2ecc71; /* High-Contrast Green for Action/Success */
-            --gwadar-light-gray: #f4f6f9; /* Soft background */
-        }
-        body { 
-            background-color: var(--gwadar-light-gray);
-            font-family: 'Arial', 'Noto Naskh Arabic', sans-serif;
-            padding-top: 56px;
-        }
-        .navbar {
-            background-color: var(--gwadar-smart-blue) !important;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        }
-        .navbar-brand, .nav-link {
-            color: white !important;
-        }
-        .container-main {
-            max-width: 1200px;
-            margin: 30px auto;
-        }
+        /* CSS jo aap ne bheja tha (All styles for index, header, cards) */
+        body { font-family: Arial, sans-serif; background-color: #f4f4f4; text-align: center; padding-top: 20px; }
+        .container { background: #fff; padding: 30px; border-radius: 8px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); max-width: 800px; margin: 30px auto; }
+        h1 { color: #007bff; margin-bottom: 20px;}
+        p { margin-bottom: 20px; font-size: 16px; }
         
-        /* The main Hero/Header section styling */
-        .hero-section {
-            background: linear-gradient(135deg, #0A3D62 0%, #1c529b 100%);
-            color: white;
-            padding: 40px 20px;
-            border-radius: 15px;
-            margin-bottom: 30px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-            text-align: center;
+        /* Navigation/Utility Bar Styles */
+        .utility-nav {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 25px;
+            flex-wrap: wrap; 
         }
-        
-        /* Styling for the App/Service Tiles (The most important part) */
-        .service-tile {
-            background: white;
-            padding: 25px;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-            text-align: center;
-            transition: all 0.3s ease;
-            display: block; /* Make the entire tile clickable */
+        .utility-nav a {
+            color: #007bff;
             text-decoration: none;
-            color: inherit;
-        }
-        .service-tile:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-            border: 2px solid var(--gwadar-accent-green);
-        }
-        .tile-icon {
-            font-size: 3.5rem;
-            color: var(--gwadar-smart-blue);
-            margin-bottom: 15px;
-        }
-        .tile-title-ur {
-            font-size: 1.2rem;
-            font-weight: 700;
-            color: var(--gwadar-smart-blue);
-            margin-bottom: 3px;
-        }
-        .tile-title-en {
-            font-size: 0.85rem;
-            color: #6c757d;
-            font-weight: 500;
-            display: block;
-        }
-        
-        /* Helpline Banner */
-        .helpline-banner {
-            background-color: var(--gwadar-accent-green);
-            color: white;
-            padding: 15px;
-            border-radius: 10px;
-            margin-top: 30px;
-            font-weight: 600;
-        }
-        .helpline-banner a {
-            color: white !important;
+            padding: 8px 12px;
+            border: 1px solid #007bff;
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s;
+            font-size: 15px;
             font-weight: bold;
-            text-decoration: underline;
+            text-wrap: nowrap; /* Prevents wrapping on small links */
         }
-        /* Styling for the English text within the RTL layout */
-        .ltr-text {
-            direction: ltr; 
-            text-align: left;
-            display: block;
-            margin-top: 5px;
+        .utility-nav a:hover {
+            background-color: #007bff;
+            color: white;
+        }
+
+        .link-button {
+            display: flex; /* Flexbox for icon and text alignment */
+            align-items: center;
+            justify-content: flex-end; /* Text/Icon alignment to the right for RTL */
+            width: 90%;
+            margin: 15px auto;
+            padding: 15px;
+            background-color: #28a745; /* Green color for GDA theme */
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: background-color 0.3s;
+            text-align: right;
+        }
+        .link-button i {
+            margin-left: 15px; /* Space between icon and text */
+            font-size: 24px;
+        }
+        .link-button:hover { 
+            background-color: #1e7e34; 
+        }
+
+        .helpline {
+            margin-top: 30px;
+            font-size: 16px;
+            color: #dc3545; /* Red for emphasis */
+            font-weight: bold;
+            padding: 10px;
+            border: 1px dashed #dc3545;
+            border-radius: 5px;
         }
     </style>
 </head>
 <body>
-    
-    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
-      <div class="container-fluid container-main">
-        <a class="navbar-brand" href="index.html">
-            <i class="fa-solid fa-gem me-2"></i> سمارٹ گوادر | SMART GWADAR
+    <div class="container">
+        <h1><i class="fa-solid fa-gauge-high"></i> گوادر ڈیجیٹل سروسز (Gwadar Digital Services)</h1>
+        
+        <div class="utility-nav">
+            <a href="about.html"><i class="fa-solid fa-info-circle me-1"></i> ہمارے بارے میں</a>
+            
+            <a href="faqs.html"><i class="fa-solid fa-question-circle me-1"></i> اکثر پوچھے جانے والے سوالات</a> 
+            
+            <a href="#" style="color: #dc3545; border-color: #dc3545;"><i class="fa-solid fa-user-lock me-1"></i> ایڈمن لاگ ان</a>
+        </div>
+        
+        <p>اپنی مطلوبہ سروس منتخب کریں۔ (Please select your required service.)</p>
+        <hr>
+
+        <a href="Tanker_request.html" class="link-button">
+            <i class="fa-solid fa-truck-droplet"></i> 💧 واٹر ٹینکر کی درخواست (Water Tanker Request)
         </a>
         
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
+        <a href="Complaint_timing.html" class="link-button">
+            <i class="fa-solid fa-exclamation-triangle"></i> 📢 شکایات کا اندراج (Lodge a Complaint)
+        </a>
         
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <div class="navbar-nav me-auto mb-2 mb-lg-0">
-            <a class="nav-link" href="about.html">تعارف | About</a>
-            <a class="nav-link" href="faqs.html">معاونت | Support</a>
-            <a class="nav-link btn btn-success text-white ms-3 me-3" href="tel:+923456789012">
-                <i class="fa-solid fa-phone me-1"></i> رابطہ کریں
-            </a>
-          </div>
-        </div>
-      </div>
-    </nav>
-    
-    <div class="container container-main">
+        <a href="Connection_request.html" class="link-button">
+            <i class="fa-solid fa-bezier-curve"></i> 🔌 نئے کنکشن کی درخواست (New Connection Request)
+        </a>
         
-        <div class="hero-section text-center">
-            <h1 class="display-5 fw-bold mb-3">
-                گوادر سمارٹ سروسز گیٹ وے
-            </h1>
-            <p class="lead mb-4">
-                جدید گوادر کی خدمت میں — تمام ضروری سہولیات تک تیزی سے رسائی۔
-                <span class="ltr-text fs-6">(Your one-stop access to essential public utilities in Gwadar.)</span>
-            </p>
-            <hr class="text-white opacity-50 w-50 mx-auto">
-            <span class="badge bg-warning text-dark px-3 py-2 mt-2">
-                <i class="fa-solid fa-star me-2"></i> 
-            </span>
-        </div>
+        <a href="bill_status.html" class="link-button">
+            <i class="fa-solid fa-file-invoice-dollar"></i> 🧾 بل کا اسٹیٹس معلوم کریں (Check Bill Status)
+        </a>
         
-        <div class="row row-cols-2 row-cols-sm-2 row-cols-md-4 g-4 text-center">
-            
-            <div class="col">
-                <a href="Tanker_request.html" class="service-tile h-100">
-                    <i class="fa-solid fa-faucet-drip tile-icon" style="color:#007bff;"></i>
-                    <div class="tile-body">
-                        <span class="tile-title-ur">واٹر ٹینکر</span>
-                        <span class="tile-title-en">(Request Water Supply)</span>
-                    </div>
-                </a>
-            </div>
-            
-            <div class="col">
-                <a href="Complaint_timing.html" class="service-tile h-100">
-                    <i class="fa-solid fa-triangle-exclamation tile-icon" style="color:#dc3545;"></i>
-                    <div class="tile-body">
-                        <span class="tile-title-ur">فوری شکایات</span>
-                        <span class="tile-title-en">(Lodge Emergency Complaint)</span>
-                    </div>
-                </a>
-            </div>
-            
-            <div class="col">
-                <a href="Connection_request.html" class="service-tile h-100">
-                    <i class="fa-solid fa-bolt tile-icon" style="color:#ffc107;"></i>
-                    <div class="tile-body">
-                        <span class="tile-title-ur">نیا کنکشن</span>
-                        <span class="tile-title-en">(New Utility Connection)</span>
-                    </div>
-                </a>
-            </div>
-            
-            <div class="col">
-                <a href="bill_status.html" class="service-tile h-100">
-                    <i class="fa-solid fa-file-invoice-dollar tile-icon" style="color:#198754;"></i>
-                    <div class="tile-body">
-                        <span class="tile-title-ur">بل کی معلومات</span>
-                        <span class="tile-title-en">(Check Bill Status)</span>
-                    </div>
-                </a>
-            </div>
-            
-        </div>
-        
-        <div class="helpline-banner text-center">
-            <p class="m-0">
-                <i class="fa-solid fa-hand-holding-hand me-2"></i> آپ کی مدد کے لیے ہم 24 گھنٹے موجود ہیں! <span class="ltr-text d-inline">(Need support? Call us now!)</span>
-                <a href="tel:+923456789012" class="ms-3 me-3">ہیلپ لائن: +92 345 6789012</a>
-            </p>
+        <div class="helpline">
+            <p><strong>مدد کے لیے رابطہ کریں (Helpline Contact):</strong> <a href="tel:+923456789012" style="color: inherit; text-decoration: none;">+92 345 6789012</a></p>
+            <p style="font-size: 14px; color: #6c757d;">یہ سروس 24/7 دستیاب ہے۔ (This service is available 24/7.)</p>
         </div>
         
     </div>
-    
-    <footer class="bg-dark text-white text-center py-3 mt-4">
-        <div class="container">
-            <p class="mb-0 small">© 2026 Gwadar Smart Services Gateway | Developed for Gala Project.</p>
-        </div>
-    </footer>
-    
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
