@@ -1,86 +1,212 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ur" dir="rtl"> 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bill & History</title>
+    <title>بل کا اسٹیٹس معلوم کریں - Check Bill Status</title>
+    
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
     <style>
-        /* Custom styles for search button */
-        .search-container {
-            border: 1px solid #ccc;
-            padding: 20px;
-            border-radius: 5px;
-            margin-bottom: 30px;
-            background-color: #f8f9fa;
+        /* Replicating the Dashboard Theme */
+        :root {
+            --gwadar-dark-primary: #041c32; /* Very Deep Navy/Near Black */
+            --gwadar-light-primary: #0077b6; /* Mid Blue for Accent */
+            --gwadar-finance-green: #28a745; /* Green for Finances/Payment */
+            --gwadar-bg-gray: #f8f9fa;
         }
+        body { 
+            background-color: var(--gwadar-bg-gray);
+            font-family: 'Arial', 'Noto Naskh Arabic', sans-serif;
+        }
+
+        /* Top Header and Sidebar Styles (Consistent with all pages) */
+        .top-header {
+            background-color: var(--gwadar-dark-primary);
+            color: white;
+            padding: 10px 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        .logo-text { font-size: 1.5rem; font-weight: 700; }
+        .sidebar { 
+            width: 250px; position: fixed; top: 50px; right: 0; height: 100vh;
+            background-color: #ffffff; padding-top: 20px; box-shadow: -2px 0 10px rgba(0, 0, 0, 0.05); z-index: 1000;
+        }
+        .sidebar a {
+            padding: 15px 20px; text-decoration: none; font-size: 1.1rem; color: #333; display: block;
+            transition: all 0.3s; border-right: 5px solid transparent;
+        }
+        .sidebar a:hover, .sidebar a.active {
+            color: var(--gwadar-light-primary); background-color: #e9f5ff; border-right: 5px solid var(--gwadar-light-primary);
+        }
+        .main-content {
+            margin-right: 250px; padding: 30px;
+        }
+        @media (max-width: 992px) {
+            .sidebar { display: none; }
+            .main-content { margin-right: 0; }
+        }
+        
+        /* Bill Status Specific Styling */
+        .search-card {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            border-top: 5px solid var(--gwadar-finance-green); /* Green for Finances/Payment */
+        }
+        .bill-card-header {
+            background-color: var(--gwadar-finance-green);
+            color: white;
+            font-weight: bold;
+        }
+        .btn-search {
+            background-color: var(--gwadar-finance-green);
+            border-color: var(--gwadar-finance-green);
+            transition: background-color 0.2s;
+        }
+        .btn-search:hover {
+            background-color: #1e7e34;
+            border-color: #1e7e34;
+        }
+        .ltr-text { direction: ltr; text-align: left; display: block; font-size: 0.8rem; }
+        .urdu-text { direction: rtl; text-align: right; }
     </style>
 </head>
 <body>
-    <header class="bg-success text-white text-center py-3">
-        <h1>💰 Water Bill & History</h1>
-    </header>
-
-    <div class="container mt-5">
-        <a href="index.html" class="btn btn-secondary mb-4">← Back to Main Menu</a>
+    
+    <div class="top-header fixed-top d-flex justify-content-between align-items-center">
+        <span class="logo-text">
+            <i class="fa-solid fa-chart-line me-2"></i> گوادر سمارٹ سٹی ڈیش بورڈ
+        </span>
+        <div>
+            <span class="badge bg-success me-2"><i class="fa-solid fa-circle-check"></i> System Operational</span>
+            <a href="#" class="text-white text-decoration-none small">Eng</a> | <a href="#" class="text-white text-decoration-none small">اردو</a>
+        </div>
+    </div>
+    
+    <div class="sidebar d-none d-lg-block">
+        <div class="px-3 mb-4">
+            <p class="text-muted small fw-bold text-uppercase">مین نیویگیشن</p>
+        </div>
+        <a href="index.html">
+            <i class="fa-solid fa-gauge me-2"></i> ڈیش بورڈ
+        </a>
+        <a href="about.html">
+            <i class="fa-solid fa-info-circle me-2"></i> ہمارے بارے میں
+        </a>
+        <a href="faqs.html">
+            <i class="fa-solid fa-question-circle me-2"></i> معاونت و سوالات
+        </a>
+        <a href="Tanker_request.html">
+            <i class="fa-solid fa-truck-droplet me-2"></i> واٹر ٹینکر
+        </a>
+        <a href="Complaint_timing.html">
+            <i class="fa-solid fa-exclamation-triangle me-2"></i> شکایات مرکز
+        </a>
+        <a href="Connection_request.html">
+            <i class="fa-solid fa-bezier-curve me-2"></i> نیا کنکشن
+        </a>
+        <a href="bill_status.html" class="active">
+            <i class="fa-solid fa-file-invoice me-2"></i> بل کی معلومات
+        </a>
+        <hr class="mx-3">
+        <a href="#" class="text-danger">
+            <i class="fa-solid fa-user-lock me-2"></i> ایڈمن لاگ ان
+        </a>
+    </div>
+    
+    <div class="main-content">
         
-        <div class="search-container">
-            <h4 class="mb-3">Find Your Bill Status</h4>
+        <h2 class="mb-4" style="color: var(--gwadar-dark-primary);">
+            <i class="fa-solid fa-file-invoice-dollar me-2" style="color: var(--gwadar-finance-green);"></i> بل کا اسٹیٹس اور تاریخ | Bill Status & History
+        </h2>
+        <p class="lead text-muted mb-4">
+            اپنا اکاؤنٹ نمبر درج کریں تاکہ اپنے موجودہ بل اور ادائیگی کی تاریخ دیکھ سکیں۔ 
+            <span class="ltr-text d-inline-block">(Enter your Account Number to view current bills and payment history.)</span>
+        </p>
+        
+        <div class="search-card mx-auto">
+            <h4 class="mb-3 urdu-text fw-bold">بل تلاش کریں <span class="ltr-text">(Find Your Bill Status)</span></h4>
             <div class="input-group">
-                <input type="text" class="form-control" placeholder="Enter Account Number (e.g., GW-34567)" aria-label="Account Number" id="accountInput">
-                <button class="btn btn-primary" type="button" onclick="alert('Search Functionality requires Back-End (PHP/SQL) connection, currently showing Demo Data.');">Search Bill</button>
+                <input type="text" class="form-control" placeholder="اکاؤنٹ نمبر درج کریں (e.g., GW-34567)" aria-label="Account Number" id="accountInput" dir="ltr">
+                <button class="btn btn-search text-white" type="button" onclick="alert('تلاش کا فیچر بیک اینڈ سے منسلک نہیں ہے۔ یہ صرف ڈیمو ڈیٹا دکھا رہا ہے۔');">
+                    <i class="fa-solid fa-search me-2"></i> بل تلاش کریں
+                </button>
             </div>
-            <small class="form-text text-muted">This button shows demo data. Actual search requires a database connection.</small>
+            <small class="form-text text-muted urdu-text">
+                <i class="fa-solid fa-info-circle me-1"></i> یہ بٹن صرف نمونہ ڈیٹا دکھاتا ہے۔ اصل تلاش کے لیے ڈیٹا بیس کنکشن ضروری ہے۔
+            </small>
         </div>
         
         <hr class="my-4">
 
-        <h3 class="mb-4 text-primary">Account: GW-34567 | Resident: Ms. Ayesha Baloch</h3>
+        <h3 class="mb-4 urdu-text" style="color: var(--gwadar-light-primary);">
+            اکاؤنٹ: GW-34567 | رہائشی: محترمہ عائشہ بلوچ
+        </h3>
         
         <div class="row">
-            <div class="col-md-6 mb-4">
-                <div class="card border-primary shadow">
-                    <div class="card-header bg-primary text-white">
-                        Current Bill (Monthly Charges)
+            <div class="col-lg-6 col-md-12 mb-4">
+                <div class="card border-success shadow h-100">
+                    <div class="card-header bill-card-header">
+                        موجودہ بل (ماہانہ چارجز) <span class="ltr-text d-inline-block">(Current Bill)</span>
                     </div>
-                    <div class="card-body">
-                        <h5 class="card-title">Rs. 950.00</h5>
-                        <p class="card-text">Due Date: November 30, 2025</p>
-                        <p class="card-text text-muted">Usage: 12,500 Liters</p>
-                        <a href="#" class="btn btn-success w-100">Pay Now (Mockup)</a>
+                    <div class="card-body urdu-text">
+                        <h5 class="card-title fw-bold text-danger">950.00 روپے</h5>
+                        <p class="card-text">آخری تاریخ: 30 نومبر 2025</p>
+                        <p class="card-text text-muted">استعمال: 12,500 لیٹر</p>
+                        <a href="#" class="btn btn-search w-100 mt-3 text-white">
+                            <i class="fa-solid fa-credit-card me-2"></i> ابھی ادائیگی کریں (نمونہ)
+                        </a>
                     </div>
                 </div>
             </div>
 
-            <div class="col-md-6 mb-4">
-                <h4>Payment History</h4>
-                <table class="table table-striped">
-                    <thead>
-                        <tr>
-                            <th>Month</th>
-                            <th>Amount Paid</th>
-                            <th>Status</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr><td>October 2025</td><td>Rs. 890.00</td><td class="text-success">Paid</td></tr>
-                        <tr><td>September 2025</td><td>Rs. 890.00</td><td class="text-success">Paid</td></tr>
-                        <tr><td>August 2025</td><td>Rs. 1100.00</td><td class="text-danger">Overdue</td></tr>
-                    </tbody>
-                </table>
+            <div class="col-lg-6 col-md-12 mb-4">
+                <div class="card shadow h-100">
+                    <div class="card-header bg-secondary text-white fw-bold">
+                        ادائیگی کی تاریخ <span class="ltr-text d-inline-block">(Payment History)</span>
+                    </div>
+                    <div class="card-body">
+                        <table class="table table-striped urdu-text">
+                            <thead>
+                                <tr>
+                                    <th>مہینہ</th>
+                                    <th>ادا شدہ رقم</th>
+                                    <th>اسٹیٹس</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr><td>اکتوبر 2025</td><td>890.00 روپے</td><td class="text-success fw-bold">ادا شدہ</td></tr>
+                                <tr><td>ستمبر 2025</td><td>890.00 روپے</td><td class="text-success fw-bold">ادا شدہ</td></tr>
+                                <tr><td>اگست 2025</td><td>1100.00 روپے</td><td class="text-danger fw-bold">واجب الادا</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
             </div>
         </div>
 
         <hr class="my-5">
 
-        <h2 class="text-center mb-4 text-secondary">Context: Gwadar's Water Struggle</h2>
-        <p class="text-center lead">Our digital system aims to end the struggles faced by previous generations to secure basic water needs.</p>
-        
-        <div class="text-center my-4">
-            <img src="water_history.jpeg" alt="Historical image of water transport in Gwadar" style="width: 80%; max-width: 400px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
-            <p class="text-muted mt-2">Before pipelines: Water transportation on donkeys (Makran, Gwadar)</p>
+        <div class="text-center my-4 p-3 bg-light rounded shadow-sm">
+            <h4 class="mb-3 text-secondary urdu-text">گوادر میں پانی کی جدوجہد: پس منظر</h4>
+            <p class="lead urdu-text">ہمارا ڈیجیٹل نظام پچھلی نسلوں کو درپیش بنیادی پانی کی ضروریات کو محفوظ بنانے کی جدوجہد کو ختم کرنے کا مقصد رکھتا ہے۔</p>
+            <p class="text-muted small mt-2 urdu-text">
+                پائپ لائنوں سے پہلے: گدھوں پر پانی کی نقل و حمل (مکران، گوادر)۔
+            </p>
         </div>
 
     </div>
+    
+    <footer class="bg-dark text-white text-center py-3 mt-4">
+        <div class="container">
+            <p class="mb-0 small">© 2026 Gwadar Smart Services Gateway | All Rights Reserved.</p>
+        </div>
+    </footer>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
