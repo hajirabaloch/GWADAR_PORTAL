@@ -1,124 +1,240 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ur" dir="rtl"> 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Complaint & Service Center</title>
+    <title>فوری شکایات مرکز - Emergency Complaint Center</title>
+    
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Custom styling -->
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
     <style>
-        body {
-            background-color: #f8f9fa;
+        /* Replicating the Dashboard Theme */
+        :root {
+            --gwadar-dark-primary: #041c32; /* Very Deep Navy/Near Black */
+            --gwadar-light-primary: #0077b6; /* Mid Blue for Accent */
+            --gwadar-accent-red: #e74c3c; /* For Alerts/Complaints - NEW FOCUS */
+            --gwadar-bg-gray: #f8f9fa;
         }
-        .card {
+        body { 
+            background-color: var(--gwadar-bg-gray);
+            font-family: 'Arial', 'Noto Naskh Arabic', sans-serif;
+        }
+
+        /* Top Header and Sidebar Styles (Consistent with index.html) */
+        .top-header {
+            background-color: var(--gwadar-dark-primary);
+            color: white;
+            padding: 10px 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        .logo-text { font-size: 1.5rem; font-weight: 700; }
+        .sidebar { 
+            width: 250px; position: fixed; top: 50px; right: 0; height: 100vh;
+            background-color: #ffffff; padding-top: 20px; box-shadow: -2px 0 10px rgba(0, 0, 0, 0.05); z-index: 1000;
+        }
+        .sidebar a {
+            padding: 15px 20px; text-decoration: none; font-size: 1.1rem; color: #333; display: block;
+            transition: all 0.3s; border-right: 5px solid transparent;
+        }
+        .sidebar a:hover, .sidebar a.active {
+            color: var(--gwadar-light-primary); background-color: #e9f5ff; border-right: 5px solid var(--gwadar-light-primary);
+        }
+        .main-content {
+            margin-right: 250px; padding: 30px;
+        }
+        @media (max-width: 992px) {
+            .sidebar { display: none; }
+            .main-content { margin-right: 0; }
+        }
+        
+        /* Complaint Specific Styling (Red/Urgency Focus) */
+        .form-card {
+            border-top: 5px solid var(--gwadar-accent-red); /* Highlight urgency */
+            background: white;
             border-radius: 12px;
-            transition: transform 0.3s ease;
+            padding: 40px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
         }
-        .card:hover {
-            transform: translateY(-5px);
-        }
-        .btn-danger {
-            background-color: #dc3545;
-            border-color: #dc3545;
+        .btn-submit-complaint {
+            background-color: var(--gwadar-accent-red);
+            border-color: var(--gwadar-accent-red);
+            font-weight: bold;
             transition: background-color 0.2s;
         }
-        .btn-danger:hover {
-            background-color: #c82333;
+        .btn-submit-complaint:hover {
+            background-color: #c0392b;
+            border-color: #c0392b;
         }
+        .ltr-text { direction: ltr; text-align: left; display: block; font-size: 0.8rem; }
+        
         /* Message Box Styling */
         #messageBox {
-            display: none;
             position: fixed;
             top: 20px;
-            right: 20px;
+            left: 50%; /* Center the box */
+            transform: translateX(-50%);
             z-index: 1050;
-            width: 300px;
-        }
-        /* Hidden iFrame to send data */
-        #gform_iframe {
-            display: none; /* Isse user ko kuch dikhega nahi */
+            width: 90%;
+            max-width: 500px;
         }
     </style>
 </head>
 <body>
     
-    <!-- Custom Message Box for Success/Error -->
     <div id="messageBox" class="alert" role="alert">
         <strong id="messageTitle"></strong>
         <span id="messageText"></span>
     </div>
 
-    <!-- Hidden iFrame jahan data bheja jayega -->
     <iframe id="gform_iframe" name="gform_iframe"></iframe>
 
-    <header class="bg-danger text-white text-center py-3">
-        <h1>🚨 Complaint & Service Center</h1>
-    </header>
-
-    <div class="container mt-5">
-        <a href="index.html" class="btn btn-secondary mb-4">← Back to Homepage</a>
-
+    <div class="top-header fixed-top d-flex justify-content-between align-items-center">
+        <span class="logo-text">
+            <i class="fa-solid fa-chart-line me-2"></i> گوادر سمارٹ سٹی ڈیش بورڈ
+        </span>
+        <div>
+            <span class="badge bg-success me-2"><i class="fa-solid fa-circle-check"></i> System Operational</span>
+            <a href="#" class="text-white text-decoration-none small">Eng</a> | <a href="#" class="text-white text-decoration-none small">اردو</a>
+        </div>
+    </div>
+    
+    <div class="sidebar d-none d-lg-block">
+        <div class="px-3 mb-4">
+            <p class="text-muted small fw-bold text-uppercase">مین نیویگیشن</p>
+        </div>
+        <a href="index.html">
+            <i class="fa-solid fa-gauge me-2"></i> ڈیش بورڈ
+        </a>
+        <a href="about.html">
+            <i class="fa-solid fa-info-circle me-2"></i> ہمارے بارے میں
+        </a>
+        <a href="faqs.html">
+            <i class="fa-solid fa-question-circle me-2"></i> معاونت و سوالات
+        </a>
+        <a href="Tanker_request.html">
+            <i class="fa-solid fa-truck-droplet me-2"></i> واٹر ٹینکر
+        </a>
+        <a href="Complaint_timing.html" class="active">
+            <i class="fa-solid fa-exclamation-triangle me-2"></i> شکایات مرکز
+        </a>
+        <a href="Connection_request.html">
+            <i class="fa-solid fa-bezier-curve me-2"></i> نیا کنکشن
+        </a>
+        <a href="bill_status.html">
+            <i class="fa-solid fa-file-invoice me-2"></i> بل کی معلومات
+        </a>
+        <hr class="mx-3">
+        <a href="#" class="text-danger">
+            <i class="fa-solid fa-user-lock me-2"></i> ایڈمن لاگ ان
+        </a>
+    </div>
+    
+    <div class="main-content">
+        
+        <h2 class="mb-4" style="color: var(--gwadar-dark-primary);">
+            <i class="fa-solid fa-exclamation-triangle me-2" style="color: var(--gwadar-accent-red);"></i> فوری شکایات مرکز | Emergency Complaint Center
+        </h2>
+        <p class="lead text-muted mb-4">
+            پانی، بجلی، یا سینیٹیشن سے متعلق فوری مسائل کو یہاں رپورٹ کریں۔ ہماری ٹیم 24/7 الرٹ رہتی ہے۔
+            <span class="ltr-text d-inline-block">(Report urgent issues related to water, electricity, or sanitation. Our team is alert 24/7.)</span>
+        </p>
+        
         <div class="row">
             
-            <!-- Card 1: Lodge a Complaint -->
-            <div class="col-12 mb-4">
-                <div class="card shadow-lg border-danger h-100">
-                    <div class="card-header bg-danger text-white">
-                        <h4 class="mb-0">Lodge a Complaint</h4>
-                    </div>
-                    <div class="card-body">
-                        <p class="card-text">Report leakage, contaminated water, or long-term supply interruption.</p>
-                        
-                        <!-- IMPORTANT: ACTION mein aapki Web App URL dobara paste hogi -->
-                        <form 
-                            id="complaintForm" 
-                            method="POST" 
-                            target="gform_iframe" 
-                            action="https://script.google.com/macros/s/AKfycbyyBG2ASCD4aeeuWf_ijRKdpU2lGTPC683NrIaUcgChGMqgldjq8qcDaFLdfdfDJ6SoAw/exec"
-                            onsubmit="handleSubmit(event)"
-                        >
-                            <div class="mb-3">
-                                <label for="issueType" class="form-label">Issue Type</label>
+            <div class="col-lg-8 col-md-12 mb-4">
+                <div class="form-card h-100">
+                    <h4 class="mb-4 text-center fw-bold" style="color: var(--gwadar-accent-red);">شکایت درج کریں | Lodge Your Complaint</h4>
+                    
+                    <form 
+                        id="complaintForm" 
+                        method="POST" 
+                        target="gform_iframe" 
+                        action="https://script.google.com/macros/s/AKfycbyyBG2ASCD4aeeuWf_ijRKdpU2lGTPC683NrIaUcgChGMqgldjq8qcDaFLdfdfDJ6SoAw/exec"
+                        onsubmit="handleSubmit(event)"
+                    >
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label for="issueType" class="form-label fw-bold">
+                                    مسئلہ کی نوعیت <span class="ltr-text">(Issue Type)</span>
+                                </label>
                                 <select class="form-select" id="issueType" name="issueType" required>
-                                    <option selected disabled value="">Select Issue</option>
-                                    <option value="Leak">Major Leakage/Pipe Burst</option>
-                                    <option value="NoWater">No Water Supply (Emergency)</option>
-                                    <option value="Quality">Contaminated/Poor Quality Water</option>
-                                    <option value="Other">Other Supply Issue</option>
+                                    <option selected disabled value="">منتخب کریں / Select Issue</option>
+                                    <option value="Leak">پانی کا بڑا لیکج / Major Leakage</option>
+                                    <option value="NoWater">پانی کی سپلائی میں رکاوٹ / No Water Supply</option>
+                                    <option value="Quality">پانی کا خراب معیار / Poor Water Quality</option>
+                                    <option value="Electricity">بجلی کی خرابی / Electricity Failure</option>
+                                    <option value="Sanitation">سینیٹیشن / Sanitation Issue</option>
+                                    <option value="Other">دیگر مسئلہ / Other Issue</option>
                                 </select>
                             </div>
-                            <div class="mb-3">
-                                <label for="location" class="form-label">Location/Address</label>
-                                <textarea class="form-control" id="location" name="location" rows="2" required></textarea>
+                            
+                            <div class="col-md-6">
+                                <label for="contact" class="form-label fw-bold">
+                                    رابطہ نمبر <span class="ltr-text">(Contact Number)</span>
+                                </label>
+                                <input type="text" class="form-control" id="contact" name="contact" required placeholder="03XXXXXXXXX" dir="ltr">
                             </div>
-                            <div class="mb-3">
-                                <label for="contact" class="form-label">Contact Number</label>
-                                <input type="text" class="form-control" id="contact" name="contact" required>
-                            </div>
-                            <div class="mb-3">
-                                <label for="details" class="form-label">Detailed Description</label>
-                                <textarea class="form-control" id="details" name="details" rows="2"></textarea>
-                            </div>
-                            <button type="submit" class="btn btn-danger w-100" id="submitBtn">Submit Complaint</button>
-                        </form>
 
-                        <!-- Tracking details -->
-                        <p class="text-muted mt-3">After submission, use the Tracking ID below to check status.</p>
-                        <hr>
-                        <h5 class="text-center">Complaint Status Tracker (Prototype)</h5>
+                            <div class="col-12">
+                                <label for="location" class="form-label fw-bold">
+                                    مکمل پتہ / لوکیشن <span class="ltr-text">(Full Address / Location)</span>
+                                </label>
+                                <textarea class="form-control" id="location" name="location" rows="2" required placeholder="بلاک A، پلاٹ نمبر 45، مین روڈ، گوادر"></textarea>
+                            </div>
+
+                            <div class="col-12">
+                                <label for="details" class="form-label fw-bold">
+                                    تفصیلی وضاحت <span class="ltr-text">(Detailed Description)</span>
+                                </label>
+                                <textarea class="form-control" id="details" name="details" rows="3" placeholder="مسئلے کو تفصیل سے بیان کریں۔ (Describe the issue in detail.)"></textarea>
+                            </div>
+
+                            <div class="col-12 mt-4">
+                                <button type="submit" class="btn btn-submit-complaint text-white w-100 py-3" id="submitBtn">
+                                    <i class="fa-solid fa-bell me-2"></i> شکایت جمع کروائیں | Submit Complaint
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="col-lg-4 col-md-12 mb-4">
+                <div class="card shadow border-info h-100">
+                    <div class="card-header bg-info text-white">
+                        <h5 class="mb-0"><i class="fa-solid fa-magnifying-glass me-2"></i> شکایت کا اسٹیٹس ٹریکر</h5>
+                    </div>
+                    <div class="card-body">
+                        <p class="text-muted small">شکایت جمع کرانے کے بعد موصول ہونے والی ٹریکنگ ID یہاں درج کریں۔</p>
                         <form action="complaint_status_view.html" method="GET">
-                            <input type="text" class="form-control mb-2" placeholder="Enter Tracking ID (e.g., CPT-00123)">
-                            <button type="submit" class="btn btn-outline-secondary w-100">Track Status</button>
+                            <input type="text" class="form-control mb-3" placeholder="ٹریکنگ ID درج کریں (e.g., CPT-00123)">
+                            <button type="submit" class="btn btn-outline-secondary w-100">اسٹیٹس معلوم کریں</button>
                         </form>
+                        <hr>
+                        <h6 class="fw-bold text-danger">⚠️ فوری نوٹس</h6>
+                        <ul class="list-unstyled small">
+                            <li><i class="fa-solid fa-clock text-danger me-2"></i> اہم شکایات کا حل 4 گھنٹے کے اندر شروع ہو جاتا ہے۔</li>
+                            <li><i class="fa-solid fa-headset text-danger me-2"></i> فون پر رابطہ: 090078601 (اضافی ہیلپ لائن)</li>
+                            <li><i class="fa-solid fa-map-marker-alt text-danger me-2"></i> ٹریکنگ آئی ڈی کو محفوظ رکھیں!</li>
+                        </ul>
                     </div>
                 </div>
             </div>
 
         </div>
     </div>
+    
+    <footer class="bg-dark text-white text-center py-3 mt-4">
+        <div class="container">
+            <p class="mb-0 small">© 2026 Gwadar Smart Services Gateway | All Rights Reserved.</p>
+        </div>
+    </footer>
 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        // Function to show custom message box
+        // Function to show custom message box (Centralized)
         function showMessage(title, text, type) {
             const msgBox = document.getElementById('messageBox');
             const msgTitle = document.getElementById('messageTitle');
@@ -143,24 +259,23 @@
         const form = document.getElementById('complaintForm');
         const submitBtn = document.getElementById('submitBtn');
 
-        // iFrame load hone par yeh function chalta hai
+        // iFrame load ہونے پر یہ فنکشن چالو ہوگا
         iframe.onload = function() {
             // Check if form was actually submitted before showing success
             if (submitBtn.disabled) {
                 submitBtn.disabled = false;
-                submitBtn.textContent = 'Submit Complaint';
+                submitBtn.innerHTML = '<i class="fa-solid fa-bell me-2"></i> شکایت جمع کروائیں | Submit Complaint';
                 form.reset();
-                showMessage('Success', 'Complaint submitted successfully! Thank you.', 'alert-success');
+                showMessage('کامیابی', 'شکایت کامیابی سے جمع کر دی گئی ہے! آپ کو جلد ہی ٹریکنگ ID ملے گی۔', 'alert-success');
             }
         };
 
-        // Form submit hone par
+        // Form submit ہونے پر
         function handleSubmit(event) {
             // Loading state
             submitBtn.disabled = true;
-            submitBtn.textContent = 'Submitting...';
-            // Form ko iFrame mein bhej diya jayega
-            // Ab data directly Apps Script ko chala jayega.
+            submitBtn.innerHTML = '<span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span> درخواست جمع ہو رہی ہے...';
+            // Data is sent to the iFrame (and then to Apps Script URL)
         }
     </script>
 </body>
