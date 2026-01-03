@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Water Tanker Request Form</title>
+    <!-- Load Tailwind CSS for styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Use Inter font */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f7f9fb;
+        }
+        .container-card {
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 0.8s ease-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="min-h-screen flex items-center justify-center p-4">
+
+    <div class="container-card w-full max-w-lg bg-white rounded-xl p-8 space-y-8">
+        
+        <header class="text-center">
+            <h1 class="text-3xl font-extrabold text-blue-600">Water Tanker Request Form</h1>
+            <p class="text-gray-500 mt-2">Enter your water requirements.</p>
+        </header>
+
+        <!-- Form Success Message Box -->
+        <div id="successMessage" class="hidden bg-green-100 border-l-4 border-green-500 text-green-700 p-4 rounded-lg" role="alert">
+            <p class="font-bold">Success!</p>
+            <p id="successText">Water Tanker Request has been submitted successfully.</p>
+        </div>
+
+        <!-- The form itself -->
+        <!-- CRITICAL STEP: PASTE YOUR NEW APPS SCRIPT URL INTO THE action="" ATTRIBUTE BELOW -->
+        <form class="space-y-6" id="tankerForm" action="https://script.google.com/macros/s/AKfycby6wz2iI_L9Csr-OnM9bsSgFe1wl_oeqgfEkBow9oaMKiPBZVcQwzGRRJQ_QjnWgabE/exec" method="POST">
+            
+            <!-- Request Type -->
+            <div>
+                <label for="requestType" class="block text-sm font-medium text-gray-700 mb-1">Request Type</label>
+                <select id="requestType" name="requestType" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 transition duration-150">
+                    <option value="" disabled selected>Select</option>
+                    <option value="Urgent Commercial">Urgent (Commercial)</option>
+                    <option value="Urgent Residential">Urgent (Residential)</option>
+                    <option value="Regular Supply">Regular Supply</option>
+                </select>
+            </div>
+
+            <!-- Delivery Location -->
+            <div>
+                <label for="deliveryLocation" class="block text-sm font-medium text-gray-700 mb-1">Delivery Location (Full Address)</label>
+                <input type="text" id="deliveryLocation" name="deliveryLocation" required placeholder="E.g., Block A, Plot No. 45, Near Masjid Road" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 transition duration-150">
+            </div>
+
+            <!-- Contact Number -->
+            <div>
+                <label for="contactNumber" class="block text-sm font-medium text-gray-700 mb-1">Contact Number</label>
+                <input type="tel" id="contactNumber" name="contactNumber" required placeholder="03XXXXXXXXX" pattern="[0-9]{11}" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 transition duration-150">
+            </div>
+
+            <!-- Quantity (Gallons) -->
+            <div>
+                <label for="quantityGallons" class="block text-sm font-medium text-gray-700 mb-1">Required Quantity (Chambers)</label>
+                <input type="number" id="quantityGallons" name="quantityGallons" required min="1000" max="50000" step="1000" placeholder="Tanker capacity (E.g., 5000)" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 transition duration-150">
+            </div>
+
+            <!-- Preferred Delivery Time -->
+            <div>
+                <label for="deliveryTime" class="block text-sm font-medium text-gray-700 mb-1">Preferred Delivery Time</label>
+                <input type="text" id="deliveryTime" name="deliveryTime" placeholder="E.g., Tomorrow at 8:00 AM" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 transition duration-150">
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit" class="w-full bg-blue-600 text-white font-semibold py-3 rounded-lg hover:bg-blue-700 transition duration-300 shadow-md hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-blue-500 focus:ring-opacity-50">
+                Submit Tanker Request
+            </button>
+        </form>
+
+        <footer class="text-center text-sm text-gray-500 mt-6">
+            <a href="complaints_tinjing.html" class="text-blue-500 hover:text-blue-700 transition duration-150">Click here to submit a Water Complaint</a>
+        </footer>
+
+    </div>
+
+    <!-- JavaScript to handle form submission via Fetch API -->
+    <script>
+        document.getElementById('tankerForm').addEventListener('submit', function(e) {
+            e.preventDefault(); // Prevent default form submission
+
+            const form = e.target;
+            const formData = new FormData(form);
+            const actionUrl = form.action;
+            const submitButton = form.querySelector('button[type="submit"]');
+            const successMessage = document.getElementById('successMessage');
+
+            // Disable button and show loading state
+            submitButton.disabled = true;
+            submitButton.textContent = 'Submitting Request...';
+
+            fetch(actionUrl, {
+                method: 'POST',
+                body: formData,
+                redirect: 'follow', 
+            })
+            .then(response => {
+                if (response.ok) {
+                    return response.text();
+                } else {
+                    throw new Error('Server error');
+                }
+            })
+            .then(text => {
+                // Reset form
+                form.reset();
+                // Show success message
+                successMessage.classList.remove('hidden');
+                
+                // Hide message after 5 seconds
+                setTimeout(() => {
+                    successMessage.classList.add('hidden');
+                }, 5000); 
+
+                console.log('Submission successful. Server message:', text);
+
+            })
+            .catch(error => {
+                console.error('Submission Error:', error);
+
+                // Display custom error message
+                const errorBox = document.createElement('div');
+                errorBox.className = 'bg-red-100 border-l-4 border-red-500 text-red-700 p-4 rounded-lg mt-4';
+                errorBox.innerHTML = '<p class="font-bold">Error!</p><p>Could not submit request. Please check your URL and internet connection.</p>';
+                form.prepend(errorBox);
+                
+                setTimeout(() => {
+                    errorBox.remove();
+                }, 7000); 
+            })
+            .finally(() => {
+                // Re-enable button
+                submitButton.disabled = false;
+                submitButton.textContent = 'Submit Tanker Request';
+            });
+        });
+    </script>
+</body>
+</html>

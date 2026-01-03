@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Complaint & Service Center</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom styling -->
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .card {
+            border-radius: 12px;
+            transition: transform 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        .btn-danger {
+            background-color: #dc3545;
+            border-color: #dc3545;
+            transition: background-color 0.2s;
+        }
+        .btn-danger:hover {
+            background-color: #c82333;
+        }
+        /* Message Box Styling */
+        #messageBox {
+            display: none;
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1050;
+            width: 300px;
+        }
+        /* Hidden iFrame to send data */
+        #gform_iframe {
+            display: none; /* Isse user ko kuch dikhega nahi */
+        }
+    </style>
+</head>
+<body>
+    
+    <!-- Custom Message Box for Success/Error -->
+    <div id="messageBox" class="alert" role="alert">
+        <strong id="messageTitle"></strong>
+        <span id="messageText"></span>
+    </div>
+
+    <!-- Hidden iFrame jahan data bheja jayega -->
+    <iframe id="gform_iframe" name="gform_iframe"></iframe>
+
+    <header class="bg-danger text-white text-center py-3">
+        <h1>🚨 Complaint & Service Center</h1>
+    </header>
+
+    <div class="container mt-5">
+        <a href="index.html" class="btn btn-secondary mb-4">← Back to Homepage</a>
+
+        <div class="row">
+            
+            <!-- Card 1: Lodge a Complaint -->
+            <div class="col-12 mb-4">
+                <div class="card shadow-lg border-danger h-100">
+                    <div class="card-header bg-danger text-white">
+                        <h4 class="mb-0">Lodge a Complaint</h4>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text">Report leakage, contaminated water, or long-term supply interruption.</p>
+                        
+                        <!-- IMPORTANT: ACTION mein aapki Web App URL dobara paste hogi -->
+                        <form 
+                            id="complaintForm" 
+                            method="POST" 
+                            target="gform_iframe" 
+                            action="https://script.google.com/macros/s/AKfycbyyBG2ASCD4aeeuWf_ijRKdpU2lGTPC683NrIaUcgChGMqgldjq8qcDaFLdfdfDJ6SoAw/exec"
+                            onsubmit="handleSubmit(event)"
+                        >
+                            <div class="mb-3">
+                                <label for="issueType" class="form-label">Issue Type</label>
+                                <select class="form-select" id="issueType" name="issueType" required>
+                                    <option selected disabled value="">Select Issue</option>
+                                    <option value="Leak">Major Leakage/Pipe Burst</option>
+                                    <option value="NoWater">No Water Supply (Emergency)</option>
+                                    <option value="Quality">Contaminated/Poor Quality Water</option>
+                                    <option value="Other">Other Supply Issue</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label for="location" class="form-label">Location/Address</label>
+                                <textarea class="form-control" id="location" name="location" rows="2" required></textarea>
+                            </div>
+                            <div class="mb-3">
+                                <label for="contact" class="form-label">Contact Number</label>
+                                <input type="text" class="form-control" id="contact" name="contact" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="details" class="form-label">Detailed Description</label>
+                                <textarea class="form-control" id="details" name="details" rows="2"></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-danger w-100" id="submitBtn">Submit Complaint</button>
+                        </form>
+
+                        <!-- Tracking details -->
+                        <p class="text-muted mt-3">After submission, use the Tracking ID below to check status.</p>
+                        <hr>
+                        <h5 class="text-center">Complaint Status Tracker (Prototype)</h5>
+                        <form action="complaint_status_view.html" method="GET">
+                            <input type="text" class="form-control mb-2" placeholder="Enter Tracking ID (e.g., CPT-00123)">
+                            <button type="submit" class="btn btn-outline-secondary w-100">Track Status</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        // Function to show custom message box
+        function showMessage(title, text, type) {
+            const msgBox = document.getElementById('messageBox');
+            const msgTitle = document.getElementById('messageTitle');
+            const msgText = document.getElementById('messageText');
+            
+            // Reset previous classes
+            msgBox.className = 'alert';
+            
+            // Set new classes and content
+            msgBox.classList.add(type, 'shadow');
+            msgTitle.textContent = title + ': ';
+            msgText.textContent = text;
+            msgBox.style.display = 'block';
+
+            // Hide after 6 seconds
+            setTimeout(() => {
+                msgBox.style.display = 'none';
+            }, 6000);
+        }
+
+        const iframe = document.getElementById('gform_iframe');
+        const form = document.getElementById('complaintForm');
+        const submitBtn = document.getElementById('submitBtn');
+
+        // iFrame load hone par yeh function chalta hai
+        iframe.onload = function() {
+            // Check if form was actually submitted before showing success
+            if (submitBtn.disabled) {
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Submit Complaint';
+                form.reset();
+                showMessage('Success', 'Complaint submitted successfully! Thank you.', 'alert-success');
+            }
+        };
+
+        // Form submit hone par
+        function handleSubmit(event) {
+            // Loading state
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Submitting...';
+            // Form ko iFrame mein bhej diya jayega
+            // Ab data directly Apps Script ko chala jayega.
+        }
+    </script>
+</body>
+</html>
