@@ -1,18 +1,17 @@
 
  <!DOCTYPE html>
-<html lang="ur" dir="rtl"> 
+<html lang="ur" dir="ltr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>گوادر ڈیجیٹل سروسز | مین پیج</title>
+    <title>اکثر پوچھے جانے والے سوالات (FAQs)</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     
     <style>
-        /* CSS jo aap ne bheja tha (All styles for index, header, cards) */
+        /* CSS jo aap ki index.html se lia gaya hai takay ye page ek jaisa dikhe */
         body { font-family: Arial, sans-serif; background-color: #f4f4f4; text-align: center; padding-top: 20px; }
-        .container { background: #fff; padding: 30px; border-radius: 8px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); max-width: 800px; margin: 30px auto; }
-        h1 { color: #007bff; margin-bottom: 20px;}
-        p { margin-bottom: 20px; font-size: 16px; }
+        .container { background: #fff; padding: 30px; border-radius: 8px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); max-width: 800px; margin: 30px auto; text-align: right;}
+        h1 { color: #007bff; margin-bottom: 20px; text-align: right;}
         
         /* Navigation/Utility Bar Styles */
         .utility-nav {
@@ -31,83 +30,69 @@
             transition: background-color 0.3s, color 0.3s;
             font-size: 15px;
             font-weight: bold;
-            text-wrap: nowrap; /* Prevents wrapping on small links */
+            text-wrap: nowrap;
         }
         .utility-nav a:hover {
             background-color: #007bff;
             color: white;
         }
-
-        .link-button {
-            display: flex; /* Flexbox for icon and text alignment */
-            align-items: center;
-            justify-content: flex-end; /* Text/Icon alignment to the right for RTL */
-            width: 90%;
-            margin: 15px auto;
-            padding: 15px;
-            background-color: #28a745; /* Green color for GDA theme */
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-            font-size: 18px;
-            transition: background-color 0.3s;
-            text-align: right;
-        }
-        .link-button i {
-            margin-left: 15px; /* Space between icon and text */
-            font-size: 24px;
-        }
-        .link-button:hover { 
-            background-color: #1e7e34; 
+        .active-link { /* Active state for FAQs page */
+            background-color: #007bff;
+            color: white !important;
         }
 
-        .helpline {
-            margin-top: 30px;
-            font-size: 16px;
-            color: #dc3545; /* Red for emphasis */
-            font-weight: bold;
-            padding: 10px;
-            border: 1px dashed #dc3545;
-            border-radius: 5px;
-        }
+        /* FAQ Specific Styles */
+        .faq-item { margin-bottom: 20px; border-bottom: 1px solid #eee; padding-bottom: 15px;}
+        .question { font-weight: bold; color: #28a745; font-size: 18px; margin-bottom: 5px; }
+        .answer { font-size: 16px; line-height: 1.6; color: #333; }
+        .back-link { display: block; margin-top: 30px; font-size: 16px; color: #28a745; text-decoration: none; text-align: center;}
     </style>
 </head>
 <body>
     <div class="container">
-        <h1><i class="fa-solid fa-gauge-high"></i> گوادر ڈیجیٹل سروسز (Gwadar Digital Services)</h1>
+        <h1><i class="fa-solid fa-question-circle me-2"></i> اکثر پوچھے جانے والے سوالات (FAQs)</h1>
         
         <div class="utility-nav">
-            <a href="about.html"><i class="fa-solid fa-info-circle me-1"></i> ہمارے بارے میں</a>
-            
-            <a href="faqs.html"><i class="fa-solid fa-question-circle me-1"></i> اکثر پوچھے جانے والے سوالات</a> 
-            
-            <a href="#" style="color: #dc3545; border-color: #dc3545;"><i class="fa-solid fa-user-lock me-1"></i> ایڈمن لاگ ان</a>
+            <a href="index.html">مین پیج</a>
+            <a href="about.html">ہمارے بارے میں (About Us)</a>
+            <a href="faqs.html" class="active-link">اکثر پوچھے جانے والے سوالات (FAQs)</a> 
         </div>
         
-        <p>اپنی مطلوبہ سروس منتخب کریں۔ (Please select your required service.)</p>
         <hr>
 
-        <a href="Tanker_request.html" class="link-button">
-            <i class="fa-solid fa-truck-droplet"></i> 💧 واٹر ٹینکر کی درخواست (Water Tanker Request)
-        </a>
-        
-        <a href="Complaint_timing.html" class="link-button">
-            <i class="fa-solid fa-exclamation-triangle"></i> 📢 شکایات کا اندراج (Lodge a Complaint)
-        </a>
-        
-        <a href="Connection_request.html" class="link-button">
-            <i class="fa-solid fa-bezier-curve"></i> 🔌 نئے کنکشن کی درخواست (New Connection Request)
-        </a>
-        
-        <a href="bill_status.html" class="link-button">
-            <i class="fa-solid fa-file-invoice-dollar"></i> 🧾 بل کا اسٹیٹس معلوم کریں (Check Bill Status)
-        </a>
-        
-        <div class="helpline">
-            <p><strong>مدد کے لیے رابطہ کریں (Helpline Contact):</strong> <a href="tel:+923456789012" style="color: inherit; text-decoration: none;">+92 345 6789012</a></p>
-            <p style="font-size: 14px; color: #6c757d;">یہ سروس 24/7 دستیاب ہے۔ (This service is available 24/7.)</p>
+        <div class="faq-item">
+            <p class="question">1. کیا یہ پورٹل صرف پانی کی خدمات کے لیے ہے؟ (Is this portal only for water services?)</p>
+            <p class="answer">
+                اردو: جی ہاں، یہ پورٹل خاص طور پر گوادر میں پانی کی فراہمی اور اس سے متعلقہ شکایات اور درخواستوں کے لیے بنایا گیا ہے۔ <br>
+                English: Yes, this portal is specifically designed for water supply, complaints, and requests related to water services in Gwadar.
+            </p>
+        </div>
+
+        <div class="faq-item">
+            <p class="question">2. میں واٹر ٹینکر کی درخواست کیسے کر سکتا ہوں؟ (How can I request a water tanker?)</p>
+            <p class="answer">
+                اردو: مین پیج پر 'واٹر ٹینکر کی درخواست' بٹن پر کلک کریں اور مطلوبہ معلومات فراہم کریں۔ <br>
+                English: Click on the 'Water Tanker Request' button on the main page and provide the necessary information.
+            </p>
         </div>
         
+        <div class="faq-item">
+            <p class="question">3. میری شکایت کو حل ہونے میں کتنا وقت لگے گا؟ (How long will it take to resolve my complaint?)</p>
+            <p class="answer">
+                اردو: شکایات جلد از جلد متعلقہ حکام کو بھیجی جاتی ہیں۔ آپ کو اپنے درج کردہ فون نمبر پر اسٹیٹس کی اپڈیٹ ملے گی۔ <br>
+                English: Complaints are forwarded to the relevant authorities immediately. You will receive a status update on the phone number you provided.
+            </p>
+        </div>
+        
+        <div class="faq-item">
+            <p class="question">4. کیا میں اپنے پانی کے بل کا اسٹیٹس آن لائن دیکھ سکتا ہوں؟ (Can I check my water bill status online?)</p>
+            <p class="answer">
+                اردو: جی ہاں، مین پیج پر 'بل کا اسٹیٹس معلوم کریں' بٹن کے ذریعے آپ آسانی سے اسٹیٹس دیکھ سکتے ہیں۔ <br>
+                English: Yes, you can easily check the status through the 'Check Bill Status' button on the main page.
+            </p>
+        </div>
+
+        <a href="index.html" class="back-link"><i class="fa-solid fa-arrow-left me-1"></i> مین پیج پر واپس جائیں (Go back to Main Page)</a>
     </div>
 </body>
 </html>
