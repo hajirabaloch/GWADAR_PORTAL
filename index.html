@@ -1,85 +1,146 @@
 
- <!DOCTYPE html>
-<html lang="ur" dir="ltr"> 
+<!DOCTYPE html>
+<html lang="ur" dir="rtl"> 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>گوادر ڈیجیٹل سروسز (Gwadar Digital Services)</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
     <style>
-        body { font-family: Arial, sans-serif; background-color: #f4f4f4; text-align: center; padding-top: 50px; }
-        .container { background: #fff; padding: 30px; border-radius: 8px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); max-width: 750px; margin: auto; }
-        h1 { color: #007bff; margin-bottom: 20px;}
-        p { margin-bottom: 20px; font-size: 16px; }
-        
-        /* Navigation/Utility Bar Styles */
-        .utility-nav {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin-bottom: 25px;
-            flex-wrap: wrap; /* موبائل کے لیے */
+        /* A slightly darker blue/cyan for a professional, maritime theme */
+        :root {
+            --gwadar-primary: #004d40; /* Dark Teal */
+            --gwadar-secondary: #009688; /* Light Teal */
+            --gwadar-accent: #ffb300; /* Gold/Amber for highlight */
         }
-        .utility-nav a {
-            color: #007bff;
-            text-decoration: none;
-            padding: 8px 12px;
-            border: 1px solid #007bff;
-            border-radius: 5px;
-            transition: background-color 0.3s, color 0.3s;
-            font-size: 14px;
+        body { 
+            background-color: #f0f4f7; /* Very light subtle gray/blue */
+            font-family: 'Arial', 'Noto Naskh Arabic', sans-serif; /* Fallback for Urdu readability */
+            padding-top: 20px;
         }
-        .utility-nav a:hover {
-            background-color: #007bff;
-            color: white;
+        .container-custom {
+            background: #fff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            max-width: 800px;
+            margin: auto;
         }
-
-        .link-button {
-            display: block;
-            width: 80%;
-            margin: 15px auto;
-            padding: 15px;
-            background-color: #28a745; /* Green color for GDA theme */
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-            font-size: 18px;
-            transition: background-color 0.3s;
+        h1 { 
+            color: var(--gwadar-primary); 
+            font-weight: 700;
+            margin-bottom: 30px;
         }
-        .link-button:hover { background-color: #1e7e34; }
-
+        .card-service {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+            border: 1px solid #dee2e6; /* Light border */
+        }
+        .card-service:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+            border-color: var(--gwadar-secondary);
+        }
+        .card-title {
+            color: var(--gwadar-primary);
+            font-size: 1.25rem;
+            font-weight: 600;
+        }
         .helpline {
+            background-color: var(--gwadar-accent); /* Highlight with Gold */
+            color: var(--gwadar-primary);
+            padding: 15px;
+            border-radius: 8px;
             margin-top: 30px;
-            font-size: 16px;
-            color: #dc3545; /* Red for emphasis */
+            font-size: 1.1rem;
+        }
+        .helpline a {
+            color: var(--gwadar-primary) !important;
             font-weight: bold;
-            padding: 10px;
-            border: 1px dashed #dc3545;
-            border-radius: 5px;
+            text-decoration: none;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>🇵🇰 گوادر ڈیجیٹل سروسز (Gwadar Digital Services)</h1>
+    
+    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: var(--gwadar-primary);">
+      <div class="container-fluid container-custom-nav">
+        <a class="navbar-brand me-auto" href="index.html">گوادر پورٹل</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav me-auto">
+            <a class="nav-link" href="about.html">ہمارے بارے میں</a>
+            <a class="nav-link" href="faqs.html">اکثر پوچھے جانے والے سوالات</a>
+            <a class="nav-link text-warning" href="tel:+923456789012">ہیلپ لائن</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+    
+    <div class="container container-custom mt-5">
         
-        <div class="utility-nav">
-            <a href="about.html">ہمارے بارے میں (About Us)</a>
-            <a href="faqs.html">اکثر پوچھے جانے والے سوالات (FAQs)</a>
+        <h1 class="text-center">🇵🇰 گوادر ڈیجیٹل سروسز</h1>
+        <p class="lead text-muted text-center mb-5">اپنی مطلوبہ سروس منتخب کریں۔ (Please select your required service.)</p>
+        
+        <div class="row row-cols-1 row-cols-md-2 g-4">
+            
+            <div class="col">
+                <a href="Tanker_request.html" class="text-decoration-none">
+                    <div class="card h-100 p-3 text-center card-service">
+                        <div class="card-body">
+                            <h3 class="card-title">💧 واٹر ٹینکر کی درخواست</h3>
+                            <p class="text-muted small">پانی کے ٹینکر کی فوری فراہمی کے لیے درخواست جمع کروائیں۔</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            
+            <div class="col">
+                <a href="Complaint_timing.html" class="text-decoration-none">
+                    <div class="card h-100 p-3 text-center card-service">
+                        <div class="card-body">
+                            <h3 class="card-title">📢 شکایات کا اندراج</h3>
+                            <p class="text-muted small">بجلی، پانی، یا سینیٹیشن سے متعلق اپنی شکایات درج کروائیں۔</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            
+            <div class="col">
+                <a href="Connection_request.html" class="text-decoration-none">
+                    <div class="card h-100 p-3 text-center card-service">
+                        <div class="card-body">
+                            <h3 class="card-title">🔌 نئے کنکشن کی درخواست</h3>
+                            <p class="text-muted small">نئے پانی یا بجلی کنکشن کے لیے آن لائن فارم پُر کریں۔</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            
+            <div class="col">
+                <a href="bill_status.html" class="text-decoration-none">
+                    <div class="card h-100 p-3 text-center card-service">
+                        <div class="card-body">
+                            <h3 class="card-title">🧾 بل کا اسٹیٹس معلوم کریں</h3>
+                            <p class="text-muted small">اپنے بل کی ادائیگی کا اسٹیٹس اور تاریخ چیک کریں۔</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            
         </div>
         
-        <p>اپنی مطلوبہ سروس منتخب کریں۔ (Please select your required service.)</p>
-        <hr>
-
-        <a href="Tanker_request.html" class="link-button">💧 واٹر ٹینکر کی درخواست (Water Tanker Request)</a>
-        <a href="Complaint_timing.html" class="link-button">📢 شکایات کا اندراج (Lodge a Complaint)</a>
-        <a href="Connection_request.html" class="link-button">🔌 نئے کنکشن کی درخواست (New Connection Request)</a>
-        <a href="bill_status.html" class="link-button">🧾 بل کا اسٹیٹس معلوم کریں (Check Bill Status)</a>
-        
-        <div class="helpline">
-            <p><strong>مدد کے لیے رابطہ کریں (Helpline Contact):</strong> <a href="tel:+923456789012" style="color: inherit; text-decoration: none;">+92 345 6789012</a></p>
-            <p style="font-size: 14px; color: #6c757d;">یہ سروس 24/7 دستیاب ہے۔ (This service is available 24/7.)</p>
+        <div class="helpline text-center">
+            <p class="m-0"><strong>مدد کے لیے رابطہ کریں:</strong> <a href="tel:+923456789012">+92 345 6789012</a></p>
+            <p class="small m-0">یہ سروس 24/7 دستیاب ہے۔</p>
         </div>
         
     </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
