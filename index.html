@@ -1,85 +1,143 @@
 
-       <!DOCTYPE html>
-<html lang="ur" dir="ltr"> 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>گوادر ڈیجیٹل سروسز (Gwadar Digital Services)</title>
-    <style>
-        body { font-family: Arial, sans-serif; background-color: #f4f4f4; text-align: center; padding-top: 50px; }
-        .container { background: #fff; padding: 30px; border-radius: 8px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); max-width: 750px; margin: auto; }
-        h1 { color: #007bff; margin-bottom: 20px;}
-        p { margin-bottom: 20px; font-size: 16px; }
-        
-        /* Navigation/Utility Bar Styles */
-        .utility-nav {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin-bottom: 25px;
-            flex-wrap: wrap; /* موبائل کے لیے */
-        }
-        .utility-nav a {
-            color: #007bff;
-            text-decoration: none;
-            padding: 8px 12px;
-            border: 1px solid #007bff;
-            border-radius: 5px;
-            transition: background-color 0.3s, color 0.3s;
-            font-size: 14px;
-        }
-        .utility-nav a:hover {
-            background-color: #007bff;
-            color: white;
-        }
+      /* GENERAL RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
 
-        .link-button {
-            display: block;
-            width: 80%;
-            margin: 15px auto;
-            padding: 15px;
-            background-color: #28a745; /* Green color for GDA theme */
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-            font-size: 18px;
-            transition: background-color 0.3s;
-        }
-        .link-button:hover { background-color: #1e7e34; }
+/* BODY */
+body {
+    background: #F4F6F8;
+    color: #333;
+    line-height: 1.6;
+}
 
-        .helpline {
-            margin-top: 30px;
-            font-size: 16px;
-            color: #dc3545; /* Red for emphasis */
-            font-weight: bold;
-            padding: 10px;
-            border: 1px dashed #dc3545;
-            border-radius: 5px;
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <h1>🇵🇰 گوادر ڈیجیٹل سروسز (Gwadar Digital Services)</h1>
-        
-        <div class="utility-nav">
-            <a href="about.html">ہمارے بارے میں (About Us)</a>
-            <a href="faqs.html">اکثر پوچھے جانے والے سوالات (FAQs)</a>
-        </div>
-        
-        <p>اپنی مطلوبہ سروس منتخب کریں۔ (Please select your required service.)</p>
-        <hr>
+/* HEADER */
+header {
+    background: #0A3D62;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    flex-wrap: wrap;
+}
 
-        <a href="Tanker_request.html" class="link-button">💧 واٹر ٹینکر کی درخواست (Water Tanker Request)</a>
-        <a href="Complaint_timing.html" class="link-button">📢 شکایات کا اندراج (Lodge a Complaint)</a>
-        <a href="Connection_request.html" class="link-button">🔌 نئے کنکشن کی درخواست (New Connection Request)</a>
-        <a href="bill_status.html" class="link-button">🧾 بل کا اسٹیٹس معلوم کریں (Check Bill Status)</a>
-        
-        <div class="helpline">
-            <p><strong>مدد کے لیے رابطہ کریں (Helpline Contact):</strong> <a href="tel:+923456789012" style="color: inherit; text-decoration: none;">+92 345 6789012</a></p>
-            <p style="font-size: 14px; color: #6c757d;">یہ سروس 24/7 دستیاب ہے۔ (This service is available 24/7.)</p>
-        </div>
-        
-    </div>
-</body>
-</html>
+header .logo {
+    font-weight: bold;
+    font-size: 18px;
+}
+
+header nav a {
+    color: white;
+    text-decoration: none;
+    margin-left: 20px;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+header nav a:hover {
+    color: #1E90A6;
+}
+
+/* HERO SECTION */
+.hero {
+    text-align: center;
+    padding: 60px 20px;
+    background: linear-gradient(to right, #0A3D62, #1E90A6);
+    color: white;
+}
+
+.hero h1 {
+    margin-bottom: 15px;
+    font-size: 28px;
+}
+
+.hero p {
+    font-size: 16px;
+}
+
+/* SERVICES CARDS */
+.services {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 50px 20px;
+}
+
+.service-card {
+    background: white;
+    padding: 25px;
+    width: 250px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+.service-card i {
+    font-size: 40px;
+    color: #1E90A6;
+    margin-bottom: 15px;
+}
+
+.service-card h3 {
+    margin-bottom: 10px;
+}
+
+.service-card p {
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+
+.service-card a {
+    display: inline-block;
+    padding: 8px 20px;
+    border-radius: 5px;
+    background: #1E90A6;
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+}
+
+.service-card a:hover {
+    background: #0A3D62;
+}
+
+/* HELPLINE */
+.helpline {
+    text-align: center;
+    margin: 40px 0;
+    padding: 15px;
+    border: 1px dashed #dc3545;
+    border-radius: 5px;
+    color: #dc3545;
+}
+
+/* FOOTER */
+footer {
+    background: #0A3D62;
+    color: white;
+    text-align: center;
+    padding: 15px;
+}
+
+/* RESPONSIVE */
+@media screen and (max-width: 768px) {
+    .services {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    header nav {
+        margin-top: 10px;
+    }
+}
