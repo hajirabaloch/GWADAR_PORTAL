@@ -1,71 +1,292 @@
-<!DOCTYPE html>
+[12:29 PM, 1/3/2026] hajirabaloch862: <!DOCTYPE html>
 <html lang="ur" dir="ltr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🔌 نئے کنکشن کی درخواست</title>
+    <title>نئے کنکشن کی درخواست (New Connection Request)</title>
     <style>
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f4f4f4; text-align: center; padding-top: 50px; }
-        .container { 
-            background: #fff; 
-            padding: 30px; 
-            border-radius: 8px; 
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); 
-            max-width: 500px; 
-            margin: auto; 
-            text-align: right; /* متن کو دائیں سے شروع کرنے کے لیے */
-        }
+        body { font-family: Arial, sans-serif; background-color: #f4f4f4; text-align: center; padding-top: 50px; }
+        .container { background: #fff; padding: 30px; border-radius: 8px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); max-width: 500px; margin: auto; text-align: right;}
         h1 { color: #007bff; margin-bottom: 30px; border-bottom: 2px solid #eee; padding-bottom: 10px;}
-        label { display: block; margin-bottom: 8px; font-weight: bold; color: #333; text-align: right;}
-        input[type="text"], select {
+        label { display: block; margin-bottom: 8px; font-weight: bold; color: #333;}
+        input[type="text"], input[type="number"], select {
             width: 100%;
             padding: 10px;
-            margin-bottom: 20px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            box-sizing: border-box;
-            text-align: right; /* ان پٹ کے اندر متن کو دائیں طرف کرنے کے لیے */
+            margin-bottom: 20px;…
+[12:30 PM, 1/3/2026] hajirabaloch862: <!DOCTYPE html>
+<html lang="ur" dir="rtl"> 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>نئے کنکشن کی درخواست - New Connection Request</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <style>
+        /* Replicating the Dashboard Theme */
+        :root {
+            --gwadar-dark-primary: #041c32; /* Very Deep Navy/Near Black */
+            --gwadar-light-primary: #0077b6; /* Mid Blue for Accent */
+            --gwadar-bg-gray: #f8f9fa;
         }
-        button {
+        body { 
+            background-color: var(--gwadar-bg-gray);
+            font-family: 'Arial', 'Noto Naskh Arabic', sans-serif;
+        }
+
+        /* Top Header and Sidebar Styles (Consistent with all pages) */
+        .top-header {
+            background-color: var(--gwadar-dark-primary);
+            color: white;
+            padding: 10px 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        .logo-text { font-size: 1.5rem; font-weight: 700; }
+        .sidebar { 
+            width: 250px; position: fixed; top: 50px; right: 0; height: 100vh;
+            background-color: #ffffff; padding-top: 20px; box-shadow: -2px 0 10px rgba(0, 0, 0, 0.05); z-index: 1000;
+        }
+        .sidebar a {
+            padding: 15px 20px; text-decoration: none; font-size: 1.1rem; color: #333; display: block;
+            transition: all 0.3s; border-right: 5px solid transparent;
+        }
+        .sidebar a:hover, .sidebar a.active {
+            color: var(--gwadar-light-primary); background-color: #e9f5ff; border-right: 5px solid var(--gwadar-light-primary);
+        }
+        .main-content {
+            margin-right: 250px; padding: 30px;
+        }
+        @media (max-width: 992px) {
+            .sidebar { display: none; }
+            .main-content { margin-right: 0; }
+        }
+        
+        /* Form Specific Styling */
+        .form-card {
+            background: white;
+            border-radius: 12px;
+            padding: 40px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            border-top: 5px solid #ffc107; /* Highlight with Gold/Yellow */
+            max-width: 800px;
+        }
+        .btn-submit-connection {
             background-color: #ffc107;
-            color: black;
-            padding: 12px 20px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 18px;
-            width: 100%;
-            transition: background-color 0.3s;
+            border-color: #ffc107;
+            color: var(--gwadar-dark-primary);
+            font-weight: bold;
+            transition: background-color 0.2s;
         }
-        button:hover { background-color: #e0a800; }
-        .back-link { display: block; margin-top: 20px; font-size: 16px; color: #007bff; text-decoration: none; text-align: center;}
+        .btn-submit-connection:hover {
+            background-color: #e0a800;
+            border-color: #e0a800;
+        }
+        .ltr-text { direction: ltr; text-align: left; display: block; font-size: 0.8rem; }
+        
+        /* Message Box Styling (Copied from previous forms) */
+        #messageBox {
+            position: fixed;
+            top: 20px;
+            left: 50%; 
+            transform: translateX(-50%);
+            z-index: 1050;
+            width: 90%;
+            max-width: 500px;
+        }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>💧 نئے کنکشن کی درخواست (Water Connection)</h1>
-        
-        <form action="https://script.google.com/macros/s/AKfycbypg2-T772aMi2cN1eQceF3c2XrPTAwEQUc8J43d2GFSnJ624wm4eDHAMwBgYZpUCDN/exec" method="POST"> 
-        <label for="cnic">شناختی کارڈ نمبر (CNIC):</label>
-            <input type="text" id="cnic" name="cnic" required placeholder="XXXXX-XXXXXXX-X">
-
-            <label for="address">مکمل پتہ (Full Address):</label>
-            <input type="text" id="address" name="address" required placeholder="گلی، سیکٹر، گوادر">
-            
-            <label for="phone">رابطہ نمبر (Contact Number):</label>
-            <input type="text" id="phone" name="phone" required placeholder="03XXXXXXXXX">
-
-            <label for="property">جائیداد کی نوعیت / کنکشن ٹائپ:</label>
-            <select id="property" name="property" required>
-                <option value="" disabled selected>منتخب کریں (Select)</option>
-                <option value="Residential">رہائشی (Residential)</option>
-                <option value="Commercial">تجارتی (Commercial)</option>
-            </select>
-
-            <button type="submit">درخواست جمع کرائیں (Submit Request)</button>
-        </form>
-        
-        <a href="index.html" class="back-link">← مین پیج پر واپس جائیں (Go back to Main Page)</a>
+    
+    <div id="messageBox" class="alert" role="alert" style="display: none;">
+        <strong id="messageTitle"></strong>
+        <span id="messageText"></span>
     </div>
+
+    <iframe id="gform_iframe" name="gform_iframe" style="display: none;"></iframe>
+
+    <div class="top-header fixed-top d-flex justify-content-between align-items-center">
+        <span class="logo-text">
+            <i class="fa-solid fa-chart-line me-2"></i> گوادر سمارٹ سٹی ڈیش بورڈ
+        </span>
+        <div>
+            <span class="badge bg-success me-2"><i class="fa-solid fa-circle-check"></i> System Operational</span>
+            <a href="#" class="text-white text-decoration-none small">Eng</a> | <a href="#" class="text-white text-decoration-none small">اردو</a>
+        </div>
+    </div>
+    
+    <div class="sidebar d-none d-lg-block">
+        <div class="px-3 mb-4">
+            <p class="text-muted small fw-bold text-uppercase">مین نیویگیشن</p>
+        </div>
+        <a href="index.html">
+            <i class="fa-solid fa-gauge me-2"></i> ڈیش بورڈ
+        </a>
+        <a href="about.html">
+            <i class="fa-solid fa-info-circle me-2"></i> ہمارے بارے میں
+        </a>
+        <a href="faqs.html">
+            <i class="fa-solid fa-question-circle me-2"></i> معاونت و سوالات
+        </a>
+        <a href="Tanker_request.html">
+            <i class="fa-solid fa-truck-droplet me-2"></i> واٹر ٹینکر
+        </a>
+        <a href="Complaint_timing.html">
+            <i class="fa-solid fa-exclamation-triangle me-2"></i> شکایات مرکز
+        </a>
+        <a href="Connection_request.html" class="active">
+            <i class="fa-solid fa-bezier-curve me-2"></i> نیا کنکشن
+        </a>
+        <a href="bill_status.html">
+            <i class="fa-solid fa-file-invoice me-2"></i> بل کی معلومات
+        </a>
+        <hr class="mx-3">
+        <a href="#" class="text-danger">
+            <i class="fa-solid fa-user-lock me-2"></i> ایڈمن لاگ ان
+        </a>
+    </div>
+    
+    <div class="main-content">
+        
+        <h2 class="mb-4" style="color: var(--gwadar-dark-primary);">
+            <i class="fa-solid fa-plug-circle-bolt me-2" style="color: #ffc107;"></i> نئے کنکشن کی درخواست | New Connection Request
+        </h2>
+        <p class="lead text-muted mb-4">
+            پانی یا دیگر یوٹیلیٹیز کے نئے کنکشن کے لیے آن لائن فارم پُر کریں۔ <span class="ltr-text d-inline-block">(Apply online for new water or utility connections.)</span>
+        </p>
+        
+        <div class="form-card mx-auto">
+            
+            <h4 class="mb-4 text-center fw-bold" style="color: var(--gwadar-dark-primary);">درخواست فارم | Application Form</h4>
+
+            <form 
+                id="connectionForm" 
+                method="POST" 
+                target="gform_iframe" 
+                action="https://script.google.com/macros/s/AKfycbyxCDH_BzZk4Kh-nT9IEzuSTHOAQeyg0s52tA-RFXJ7KWvehHOfaMviVHUslZHCKpti/exec"
+                onsubmit="handleSubmit(event)"
+            >
+                <div class="row g-3">
+                    
+                    <div class="col-md-6">
+                        <label for="cnic" class="form-label fw-bold">
+                            شناختی کارڈ نمبر <span class="ltr-text">(CNIC Number)</span>
+                        </label>
+                        <input type="text" id="cnic" name="cnic" required placeholder="XXXXX-XXXXXXX-X" class="form-control" dir="ltr" pattern="\d{5}-\d{7}-\d{1}">
+                        <div class="form-text ltr-text text-muted">Format: 12345-6789012-3</div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <label for="property" class="form-label fw-bold">
+                            جائیداد کی نوعیت <span class="ltr-text">(Property Type)</span>
+                        </label>
+                        <select id="property" name="property" required class="form-select">
+                            <option value="" disabled selected>منتخب کریں / Select</option>
+                            <option value="Residential">رہائشی / Residential</option>
+                            <option value="Commercial">تجارتی / Commercial</option>
+                            <option value="Industrial">صنعتی / Industrial</option>
+                        </select>
+                    </div>
+
+                    <div class="col-md-6">
+                        <label for="phone" class="form-label fw-bold">
+                            رابطہ نمبر <span class="ltr-text">(Contact Number)</span>
+                        </label>
+                        <input type="tel" id="phone" name="phone" required placeholder="03XXXXXXXXX (11 Digits)" pattern="[0-9]{11}" class="form-control" dir="ltr">
+                    </div>
+
+                    <div class="col-md-6">
+                        <label for="utilityType" class="form-label fw-bold">
+                            مطلوبہ یوٹیلیٹی <span class="ltr-text">(Required Utility)</span>
+                        </label>
+                        <select id="utilityType" name="utilityType" required class="form-select">
+                            <option value="Water">پانی کا کنکشن / Water Connection</option>
+                            <option value="Sewerage">سیوریج کنکشن / Sewerage Connection</option>
+                        </select>
+                    </div>
+
+                    <div class="col-12">
+                        <label for="address" class="form-label fw-bold">
+                            مکمل پتہ <span class="ltr-text">(Full Address)</span>
+                        </label>
+                        <textarea id="address" name="address" required placeholder="پلاٹ نمبر، بلاک، سیکٹر، گوادر" rows="3" class="form-control"></textarea>
+                        <div class="form-text text-muted">
+                            سروے کے لیے پلاٹ کی مکمل اور درست معلومات درج کریں۔
+                            <span class="ltr-text d-block">(Enter complete and accurate plot details for site survey.)</span>
+                        </div>
+                    </div>
+
+                    <div class="col-12 mt-4">
+                        <button type="submit" class="btn btn-submit-connection w-100 py-3" id="submitBtn">
+                            <i class="fa-solid fa-right-to-bracket me-2"></i> درخواست جمع کرائیں | Submit Request
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <div class="alert alert-warning mt-5 text-center">
+            <h5 class="alert-heading"><i class="fa-solid fa-file-alt me-2"></i> لازمی دستاویزات</h5>
+            <p class="mb-0 small">
+                کنکشن کی منظوری کے لیے آپ کو جلد ہی CNIC کاپی اور پراپرٹی دستاویزات فراہم کرنے کے لیے رابطہ کیا جائے گا۔
+            </p>
+            <span class="ltr-text d-block small text-muted">(You will be contacted soon to provide CNIC copy and property documents for approval.)</span>
+        </div>
+        
+    </div>
+    
+    <footer class="bg-dark text-white text-center py-3 mt-4">
+        <div class="container">
+            <p class="mb-0 small">© 2026 Gwadar Smart Services Gateway | All Rights Reserved.</p>
+        </div>
+    </footer>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Form submission and message handling logic (Consistent with previous forms)
+        function showMessage(title, text, type) {
+            const msgBox = document.getElementById('messageBox');
+            const msgTitle = document.getElementById('messageTitle');
+            const msgText = document.getElementById('messageText');
+            
+            msgBox.className = 'alert';
+            msgBox.classList.add(type, 'shadow');
+            msgTitle.textContent = title + ': ';
+            msgText.textContent = text;
+            msgBox.style.display = 'block';
+
+            setTimeout(() => {
+                msgBox.style.display = 'none';
+            }, 6000);
+        }
+
+        const iframe = document.getElementById('gform_iframe');
+        const form = document.getElementById('connectionForm');
+        const submitBtn = document.getElementById('submitBtn');
+
+        iframe.onload = function() {
+            if (submitBtn.disabled) {
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = '<i class="fa-solid fa-right-to-bracket me-2"></i> درخواست جمع کرائیں | Submit Request';
+                form.reset();
+                showMessage('کامیابی', 'کنکشن کی درخواست کامیابی سے جمع کر دی گئی ہے۔', 'alert-success');
+            }
+        };
+
+        function handleSubmit(event) {
+            // Optional: CNIC and Phone validation before submission
+            const cnicInput = document.getElementById('cnic');
+            const phoneInput = document.getElementById('phone');
+
+            if (!cnicInput.checkValidity() || !phoneInput.checkValidity()) {
+                showMessage('خامی', 'براہ کرم CNIC اور رابطہ نمبر درست فارمیٹ میں درج کریں۔', 'alert-danger');
+                return;
+            }
+
+            // Loading state
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span> درخواست جمع ہو رہی ہے...';
+        }
+    </script>
 </body>
 </html>
