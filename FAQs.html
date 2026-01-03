@@ -1,55 +1,194 @@
 <!DOCTYPE html>
-<html lang="ur" dir="ltr">
+<html lang="ur" dir="rtl"> 
 <head>
     <meta charset="UTF-8">
-    <title>اکثر پوچھے جانے والے سوالات (FAQs)</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>اکثر پوچھے جانے والے سوالات - Frequently Asked Questions</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
     <style>
-        body { font-family: Arial, sans-serif; background-color: #f4f4f4; text-align: center; padding-top: 50px; }
-        .container { background: #fff; padding: 30px; border-radius: 8px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); max-width: 750px; margin: auto; text-align: right;}
-        h1 { color: #007bff; margin-bottom: 30px; text-align: right;}
-        .faq-item { margin-bottom: 20px; border-bottom: 1px solid #eee; padding-bottom: 15px;}
-        .question { font-weight: bold; color: #28a745; font-size: 18px; margin-bottom: 5px; }
-        .answer { font-size: 16px; line-height: 1.6; color: #333; }
-        .back-link { display: block; margin-top: 30px; font-size: 16px; color: #28a745; text-decoration: none; text-align: center;}
+        /* Replicating the Dashboard Theme (Ensure this block is placed in style.css later) */
+        :root {
+            --gwadar-dark-primary: #041c32; /* Very Deep Navy/Near Black */
+            --gwadar-light-primary: #0077b6; /* Mid Blue for Accent */
+            --gwadar-bg-gray: #f8f9fa;
+        }
+        body { 
+            background-color: var(--gwadar-bg-gray);
+            font-family: 'Arial', 'Noto Naskh Arabic', sans-serif;
+        }
+        /* Common Header and Sidebar Styles (Consistent with all pages) */
+        .top-header {
+            background-color: var(--gwadar-dark-primary);
+            color: white;
+            padding: 10px 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        .logo-text { font-size: 1.5rem; font-weight: 700; }
+        .sidebar { 
+            width: 250px; position: fixed; top: 50px; right: 0; height: 100vh;
+            background-color: #ffffff; padding-top: 20px; box-shadow: -2px 0 10px rgba(0, 0, 0, 0.05); z-index: 1000;
+        }
+        .sidebar a {
+            padding: 15px 20px; text-decoration: none; font-size: 1.1rem; color: #333; display: block;
+            transition: all 0.3s; border-right: 5px solid transparent;
+        }
+        .sidebar a:hover, .sidebar a.active {
+            color: var(--gwadar-light-primary); background-color: #e9f5ff; border-right: 5px solid var(--gwadar-light-primary);
+        }
+        .main-content {
+            margin-right: 250px; padding: 30px;
+        }
+        @media (max-width: 992px) {
+            .sidebar { display: none; }
+            .main-content { margin-right: 0; }
+        }
+        /* FAQs Specific Styles */
+        .faq-container-card {
+            background: white;
+            border-radius: 12px;
+            padding: 40px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        }
+        .accordion-button:not(.collapsed) {
+            color: var(--gwadar-light-primary);
+            background-color: #e9f5ff;
+            box-shadow: inset 0 -1px 0 rgba(0, 0, 0, .125);
+        }
+        .ltr-text { direction: ltr; text-align: left; display: block; font-size: 0.8rem; }
+        .urdu-text { direction: rtl; text-align: right; }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>❓ اکثر پوچھے جانے والے سوالات (FAQs)</h1>
-        
-        <div class="faq-item">
-            <p class="question">1. کیا یہ پورٹل صرف پانی کی خدمات کے لیے ہے؟ (Is this portal only for water services?)</p>
-            <p class="answer">
-                اردو: جی ہاں، یہ پورٹل خاص طور پر گوادر میں پانی کی فراہمی اور اس سے متعلقہ شکایات اور درخواستوں کے لیے بنایا گیا ہے۔ <br>
-                English: Yes, this portal is specifically designed for water supply, complaints, and requests related to water services in Gwadar.
-            </p>
+    
+    <div class="top-header fixed-top d-flex justify-content-between align-items-center">
+        <span class="logo-text">
+            <i class="fa-solid fa-chart-line me-2"></i> گوادر سمارٹ سٹی ڈیش بورڈ
+        </span>
+        <div>
+            <span class="badge bg-success me-2"><i class="fa-solid fa-circle-check"></i> System Operational</span>
+            <a href="#" class="text-white text-decoration-none small">Eng</a> | <a href="#" class="text-white text-decoration-none small">اردو</a>
         </div>
-
-        <div class="faq-item">
-            <p class="question">2. میں واٹر ٹینکر کی درخواست کیسے کر سکتا ہوں؟ (How can I request a water tanker?)</p>
-            <p class="answer">
-                اردو: مین پیج پر 'واٹر ٹینکر کی درخواست' بٹن پر کلک کریں اور مطلوبہ معلومات فراہم کریں۔ <br>
-                English: Click on the 'Water Tanker Request' button on the main page and provide the necessary information.
-            </p>
-        </div>
-        
-        <div class="faq-item">
-            <p class="question">3. میری شکایت کو حل ہونے میں کتنا وقت لگے گا؟ (How long will it take to resolve my complaint?)</p>
-            <p class="answer">
-                اردو: شکایات جلد از جلد متعلقہ حکام کو بھیجی جاتی ہیں۔ آپ کو اپنے درج کردہ فون نمبر پر اسٹیٹس کی اپڈیٹ ملے گی۔ <br>
-                English: Complaints are forwarded to the relevant authorities immediately. You will receive a status update on the phone number you provided.
-            </p>
-        </div>
-        
-        <div class="faq-item">
-            <p class="question">4. کیا میں اپنے پانی کے بل کا اسٹیٹس آن لائن دیکھ سکتا ہوں؟ (Can I check my water bill status online?)</p>
-            <p class="answer">
-                اردو جی ہاں، مین پیج پر 'بل کا اسٹیٹس معلوم کریں' بٹن کے ذریعے آپ آسانی سے اسٹیٹس دیکھ سکتے ہیں۔ <br>
-                English: Yes, you can easily check the status through the 'Check Bil Status'button on the main page.
-            </p>
-        </div>
-
-        <a href="index.html" class="back-link">← مین پیج پر واپس جائیں (Go back to Main Page)</a>
     </div>
+    
+    <div class="sidebar d-none d-lg-block">
+        <div class="px-3 mb-4">
+            <p class="text-muted small fw-bold text-uppercase">مین نیویگیشن</p>
+        </div>
+        <a href="index.html">
+            <i class="fa-solid fa-gauge me-2"></i> ڈیش بورڈ
+        </a>
+        <a href="about.html">
+            <i class="fa-solid fa-info-circle me-2"></i> ہمارے بارے میں
+        </a>
+        <a href="faqs.html" class="active">
+            <i class="fa-solid fa-question-circle me-2"></i> معاونت و سوالات
+        </a>
+        <a href="Tanker_request.html">
+            <i class="fa-solid fa-truck-droplet me-2"></i> واٹر ٹینکر
+        </a>
+        <a href="Complaint_timing.html">
+            <i class="fa-solid fa-exclamation-triangle me-2"></i> شکایات مرکز
+        </a>
+        <a href="Connection_request.html">
+            <i class="fa-solid fa-bezier-curve me-2"></i> نیا کنکشن
+        </a>
+        <a href="bill_status.html">
+            <i class="fa-solid fa-file-invoice me-2"></i> بل کی معلومات
+        </a>
+        <hr class="mx-3">
+        <a href="#" class="text-danger">
+            <i class="fa-solid fa-user-lock me-2"></i> ایڈمن لاگ ان
+        </a>
+    </div>
+    
+    <div class="main-content">
+        
+        <h2 class="mb-4" style="color: var(--gwadar-dark-primary);">
+            <i class="fa-solid fa-question-circle me-2" style="color: var(--gwadar-light-primary);"></i> اکثر پوچھے جانے والے سوالات | Frequently Asked Questions
+        </h2>
+        <p class="lead text-muted mb-4">
+            خدمات، درخواستوں اور شکایات کے بارے میں عام سوالات کے جوابات یہاں تلاش کریں۔
+        </p>
+
+        <div class="faq-container-card mx-auto">
+            <div class="accordion urdu-text" id="faqAccordion">
+                
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingOne">
+                        <button class="accordion-button fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            1. کیا یہ پورٹل صرف پانی کی خدمات کے لیے ہے؟ <span class="ltr-text d-inline-block fw-normal">(Is this portal only for water services?)</span>
+                        </button>
+                    </h2>
+                    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            <p><strong>اردو:</strong> جی ہاں، یہ پورٹل خاص طور پر گوادر میں پانی کی فراہمی اور اس سے متعلقہ شکایات اور درخواستوں کے لیے بنایا گیا ہے تاکہ سروس کو زیادہ ڈیجیٹل بنایا جا سکے۔</p>
+                            <p class="ltr-text text-muted">Yes, this portal is specifically designed for water supply, complaints, and requests related to water services in Gwadar to make the service more digital.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingTwo">
+                        <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                            2. میں واٹر ٹینکر کی درخواست کیسے کر سکتا ہوں؟ <span class="ltr-text d-inline-block fw-normal">(How can I request a water tanker?)</span>
+                        </button>
+                    </h2>
+                    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            <p><strong>اردو:</strong> نیویگیشن بار میں 'واٹر ٹینکر' کے لنک پر کلک کریں اور آن لائن فارم پر کریں۔ یہ درخواست براہ راست آپریٹر کے پاس چلی جائے گی۔</p>
+                            <p class="ltr-text text-muted">Click on the 'Water Tanker' link in the navigation bar and fill out the online form. The request goes directly to the operator.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingThree">
+                        <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                            3. میری شکایت کو حل ہونے میں کتنا وقت لگے گا؟ <span class="ltr-text d-inline-block fw-normal">(How long will it take to resolve my complaint?)</span>
+                        </button>
+                    </h2>
+                    <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            <p><strong>اردو:</strong> اہم (Urgent) شکایات پر ترجیحی بنیادوں پر کام کیا جاتا ہے۔ شکایات جلد از جلد متعلقہ حکام کو بھیجی جاتی ہیں اور آپ کو اپنے درج کردہ فون نمبر پر اسٹیٹس کی اپڈیٹ ملے گی۔</p>
+                            <p class="ltr-text text-muted">Urgent complaints are prioritized. Complaints are immediately forwarded to relevant authorities, and you will receive a status update on the phone number you provided.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingFour">
+                        <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                            4. کیا میں اپنے پانی کے بل کا اسٹیٹس آن لائن دیکھ سکتا ہوں؟ <span class="ltr-text d-inline-block fw-normal">(Can I check my water bill status online?)</span>
+                        </button>
+                    </h2>
+                    <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            <p><strong>اردو:</strong> جی ہاں، آپ مین پیج یا سائیڈبار پر 'بل کی معلومات' کے بٹن کے ذریعے آسانی سے اپنا اکاؤنٹ نمبر درج کر کے اسٹیٹس دیکھ سکتے ہیں۔</p>
+                            <p class="ltr-text text-muted">Yes, you can easily check the status by entering your account number via the 'Bill Information' button on the main page or sidebar.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        
+        <div class="text-center mt-5">
+            <a href="index.html" class="btn btn-secondary text-dark">
+                <i class="fa-solid fa-arrow-right-to-bracket me-2"></i> مین ڈیش بورڈ پر واپس جائیں
+            </a>
+        </div>
+    </div>
+    
+    <footer class="bg-dark text-white text-center py-3 mt-4">
+        <div class="container">
+            <p class="mb-0 small">© 2026 Gwadar Smart Services Gateway | All Rights Reserved.</p>
+        </div>
+    </footer>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
