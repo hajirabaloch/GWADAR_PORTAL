@@ -1,0 +1,177 @@
+ :root {
+    --primary: #065f46;
+    --bg: #ffffff;
+    --text: #1a1a1a;
+    --light-gray: #f4f4f5;
+    --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    font-family: 'Inter', sans-serif;
+    color: var(--text);
+    background: var(--bg);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+.urdu { font-family: 'Noto Nastaliq Urdu', serif; direction: rtl; }
+
+/* Navbar */
+nav {
+    position: fixed;
+    top: 0; width: 100%;
+    padding: 1.5rem 8%;
+    display: flex; justify-content: space-between; align-items: center;
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(15px);
+    z-index: 1000;
+    transition: var(--transition);
+}
+
+.nav-links { display: flex; gap: 2.5rem; list-style: none; }
+.nav-links a { 
+    text-decoration: none; color: var(--text); font-weight: 500; 
+    font-size: 0.9rem; transition: var(--transition);
+}
+.nav-links a:hover { color: var(--primary); transform: translateY(-2px); }
+
+/* Animations */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease-out;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Beautiful Form UI */
+.form-container {
+    max-width: 500px; margin: 100px auto; padding: 40px;
+    background: white; border-radius: 24px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.04);
+}
+
+input, select, textarea {
+    width: 100%; padding: 14px; margin: 10px 0;
+    border: 1px solid #e5e7eb; border-radius: 12px;
+    background: var(--light-gray); transition: var(--transition);
+}
+
+input:focus { outline: none; border-color: var(--primary); background: white; }
+
+button {
+    background: var(--primary); color: white; border: none;
+    padding: 16px; border-radius: 12px; width: 100%;
+    font-weight: 600; cursor: pointer; transition: var(--transition);
+}
+
+button:hover { opacity: 0.9; transform: scale(0.98); }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            scroll-behavior: smooth;
+        }
+
+        .urdu { font-family: 'Noto Nastaliq Urdu', serif; line-height: 2.5; direction: rtl; }
+
+        /* --- Navigation --- */
+        nav {
+            position: fixed;
+            top: 0; width: 100%;
+            padding: 1rem 8%;
+            display: flex; justify-content: space-between; align-items: center;
+            background: var(--glass);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid #eee;
+        }
+
+        .logo { font-weight: 700; color: var(--primary); font-size: 1.4rem; }
+
+        .nav-links { display: flex; gap: 2rem; list-style: none; }
+        .nav-links a { 
+            text-decoration: none; color: var(--text); 
+            font-size: 0.9rem; font-weight: 500; transition: 0.3s;
+        }
+        .nav-links a:hover { color: var(--primary); }
+
+        /* --- Hero Banner --- */
+        .hero {
+            height: 60vh;
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
+                        url('Images/WhatsApp\ Image\ 2026-01-17\ at\ 12.16.58\ PM\ \(1\).jpeg');
+            background-size: cover;
+            background-position: center;
+            display: flex; flex-direction: column;
+            justify-content: center; align-items: center;
+            color: white; text-align: center;
+            padding-top: 60px;
+        }
+
+        .hero h1 { font-size: 3rem; margin-bottom: 10px; }
+
+        /* --- Complaint Section --- */
+        .section { padding: 5rem 10%; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+
+        .card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            border: 1px solid #f0f0f0;
+            transition: 0.3s;
+        }
+
+        .card:hover { transform: translateY(-5px); border-color: var(--primary); }
+
+        .tag {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+            background: #ecfdf5;
+            color: var(--primary);
+        }
+
+        /* --- Form --- */
+        .complaint-form {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 1rem;
+            margin: 0.8rem 0;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-family: inherit;
+        }
+
+        button {
+            background: var(--primary);
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            width: 100%;
+            font-weight: 600;
+            font-size: 1rem;
+        }
+
+        footer { text-align: center; padding: 3rem; color: var(--secondary); font-size: 0.9rem; }
