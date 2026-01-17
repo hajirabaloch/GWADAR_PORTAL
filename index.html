@@ -1,135 +1,447 @@
 <!DOCTYPE html>
-<html lang="ur" dir="rtl"> <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>گوادر ڈیجیٹل سروسز | مین ڈیش بورڈ</title>
-    
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
-    <style>
-        /* BASE STYLES */
-        body { 
-            font-family: 'Arial', sans-serif; 
-            background-color: #f4f4f4; 
-            text-align: center; 
-            padding-top: 50px; 
-            direction: rtl; /* Ensure whole page is RTL */
-        }
-        .container { 
-            background: #fff; 
-            padding: 30px; 
-            border-radius: 12px; /* Slightly smoother corners */
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); 
-            max-width: 750px; 
-            margin: 0px auto; 
-        }
-        h1 { 
-            color: #007bff; 
-            margin-bottom: 25px;
-            font-size: 26px; 
-        }
-        p { 
-            margin-bottom: 20px; 
-            font-size: 16px; 
-            line-height: 1.6;
-        }
-        
-        /* UTILITY NAVIGATION (Top Links) */
-        .utility-nav {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin-bottom: 25px;
-            flex-wrap: wrap; 
-        }
-        .utility-nav a {
-            color: #007bff;
-            text-decoration: none;
-            padding: 8px 15px;
-            border: 1px solid #007bff;
-            border-radius: 25px; /* Pill shape for links */
-            transition: all 0.3s;
-            font-size: 15px;
-            font-weight: 600;
-        }
-        .utility-nav a:hover {
-            background-color: #007bff;
-            color: white;
-        }
-        .utility-nav i {
-            margin-left: 5px; /* Space for icons in links */
-        }
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gwadar Citizen Portal | گوادر سٹیزن پورٹل</title>
 
-        /* MAIN SERVICE BUTTONS */
-        .link-button {
-            display: flex; /* Use Flex for better alignment */
-            align-items: center;
-            justify-content: flex-end; /* Align content to the right (RTL) */
-            width: 90%;
-            margin: 15px auto;
-            padding: 18px 20px; /* Increased padding */
-            background-color: #28a745; /* GDA Green */
-            color: white;
-            text-decoration: none;
-            border-radius: 8px;
-            font-size: 19px;
-            transition: background-color 0.3s, transform 0.2s;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-        }
-        .link-button i {
-            margin-left: 15px; /* Space between icon and text */
-            font-size: 28px; /* Larger icons */
-        }
-        .link-button:hover { 
-            background-color: #1e7e34; 
-            transform: translateY(-2px); /* Slight lift on hover */
-        }
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Noto+Nastaliq+Urdu:wght@400;700&display=swap" rel="stylesheet">
 
-        /* HELPLINE */
-        .helpline {
-            margin-top: 35px;
-            font-size: 17px;
-            color: #dc3545; 
-            font-weight: bold;
-            padding: 15px;
-            border: 2px dashed #dc3545;
-            border-radius: 10px;
-        }
-    </style>
+<style>
+:root {
+    --primary: #065f46;
+    --bg: #ffffff;
+    --text: #1a1a1a;
+    --muted: #6b7280;
+    --light: #f3f4f6;
+    --radius: 18px;
+    --transition: all 0.5s ease;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+    scroll-behavior: smooth;
+}
+
+.urdu {
+    font-family: 'Noto Nastaliq Urdu', serif;
+    direction: rtl;
+    line-height: 2.4;
+}
+
+/* NAVBAR */
+nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 1rem 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(255,255,255,0.9);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    border-bottom: 1px solid #eee;
+}
+
+.logo {
+    font-weight: 700;
+    font-size: 1.4rem;
+    color: var(--primary);
+}
+
+.nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text);
+    font-weight: 500;
+    transition: var(--transition);
+}
+
+.nav-links a:hover {
+    color: var(--primary);
+}
+
+/* HERO */
+.hero {
+    height: 100vh;
+    background: linear-gradient(rgba(0,0,0,.45), rgba(0,0,0,.45)),
+    url('Images/WhatsApp Image 2026-01-17 at 12.16.58 PM (1).jpeg') center/cover no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    padding-top: 70px;
+}
+
+.hero h1 {
+    font-size: 3.2rem;
+    margin-bottom: 10px;
+}
+
+.section {
+    padding: 5rem 10%;
+}
+
+/* ANIMATIONS */
+.reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: 0.8s ease;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* CARDS */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+.card {
+    background: white;
+    padding: 2.5rem;
+    border-radius: var(--radius);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+    transition: var(--transition);
+}
+
+.card:hover {
+    transform: translateY(-8px);
+}
+
+.tag {
+    display: inline-block;
+    background: #ecfdf5;
+    color: var(--primary);
+    padding: 5px 14px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    margin-bottom: 1rem;
+}
+
+/* FORMS */
+.form-box {
+    max-width: 600px;
+    margin: auto;
+    background: white;
+    padding: 3rem;
+    border-radius: 22px;
+    box-shadow: 0 25px 50px rgba(0,0,0,0.06);
+}
+
+input, select, textarea {
+    width: 100%;
+    padding: 1rem;
+    margin: 0.8rem 0;
+    border-radius: 12px;
+    border: 1px solid #e5e7eb;
+    background: var(--light);
+    transition: var(--transition);
+}
+
+input:focus, textarea:focus, select:focus {
+    outline: none;
+    background: white;
+    border-color: var(--primary);
+}
+
+button {
+    background: var(--primary);
+    color: white;
+    border: none;
+    padding: 1rem;
+    border-radius: 14px;
+    width: 100%;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+button:hover {
+    opacity: 0.9;
+    transform: scale(0.98);
+}
+
+/* FOOTER */
+footer {
+    background: #022c22;
+    color: #d1fae5;
+    text-align: center;
+    padding: 3rem 10%;
+    font-size: 0.9rem;
+}
+/* HERO SLIDER */
+.hero {
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+    padding-top: 70px;
+}
+
+.hero-slide {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    transition: opacity 1.2s ease-in-out, transform 1.2s ease;
+    transform: scale(1.05);
+}
+
+.hero-slide.active {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.hero-overlay {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    color: white;
+}
+
+.hero::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.45);
+    z-index: 1;
+}
+
+/* SLIDER DOTS */
+.slider-dots {
+    position: absolute;
+    bottom: 25px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+    z-index: 3;
+}
+
+.slider-dots span {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.5);
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.slider-dots span.active {
+    background: white;
+    transform: scale(1.2);
+}
+
+</style>
 </head>
-<body>
-    <div class="container">
-        <h1><i class="fa-solid fa-city me-2"></i> گوادر ڈیجیٹل سروسز (Gwadar Digital Services)</h1>
-        
-        <div class="utility-nav">
-            <a href="about.html"><i class="fa-solid fa-info-circle"></i> ہمارے بارے میں</a>
-            <a href="FAQs.html"><i class="fa-solid fa-question-circle"></i> اکثر پوچھے جانے والے سوالات</a>
-        </div>
-        
-        <p>اپنی مطلوبہ سروس منتخب کریں۔ (Please select your required service.)</p>
-        <hr>
 
-        <a href="Tanker_request.html" class="link-button">
-            <i class="fa-solid fa-truck-droplet"></i> واٹر ٹینکر کی درخواست (Water Tanker Request)
-        </a>
-        
-        <a href="Complaint_timing.html" class="link-button">
-            <i class="fa-solid fa-exclamation-triangle"></i> شکایات کا اندراج (Lodge a Complaint)
-        </a>
-        
-        <a href="Connection_request.html" class="link-button">
-            <i class="fa-solid fa-bezier-curve"></i> نئے کنکشن کی درخواست (New Connection Request)
-        </a>
-        
-        <a href="bill_status.html" class="link-button">
-            <i class="fa-solid fa-file-invoice-dollar"></i> بل کا اسٹیٹس معلوم کریں (Check Bill Status)
-        </a>
-        
-        <div class="helpline">
-            <p><strong><i class="fa-solid fa-headset me-2"></i> مدد کے لیے رابطہ کریں (Helpline Contact):</strong> <a href="tel:+923456789012" style="color: inherit; text-decoration: none;">+92 345 6789012</a></p>
-            <p style="font-size: 14px; color: #6c757d; margin-bottom: 0;">(This service is available 24/7.) یہ سروس 24/7 دستیاب ہے۔</p>
-        </div>
-        
+<body>
+
+<nav>
+    <div class="logo">GWADAR PORTAL</div>
+    <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#complaints">Complaints</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+</nav>
+
+<header class="hero" id="home">
+
+    <div class="hero-slide active"
+         style="background-image:url('Images/15.jpeg')"></div>
+
+    <div class="hero-slide"
+         style="background-image:url('Images/10.jpeg')"></div>
+
+    <div class="hero-slide"
+         style="background-image:url('Images/9.jpeg')"></div>
+
+    <div class="hero-slide"
+         style="background-image:url('Images/11.jpeg')"></div>
+
+    <div class="hero-overlay reveal">
+        <h1>Gwadar Citizen Portal</h1>
+        <p style="font-size: 2rem;" class="urdu">گوادر کے شہریوں کے مسائل کے حل کے لیے ایک جدید پلیٹ فارم</p>
     </div>
+
+    <div class="slider-dots">
+        <span class="active"></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
+</header>
+
+
+<!-- COMPLAINT TYPES -->
+<section class="section" id="complaints">
+<h2 class="reveal" style="text-align:center;margin-bottom:3rem;">
+Register Complaints | شکایات درج کریں
+</h2>
+
+<div class="grid">
+    <div class="card reveal">
+        <span class="tag">Electricity</span>
+        <h3>Load Shedding</h3>
+        <p class="urdu">بجلی کی لوڈ شیڈنگ اور وولٹیج کے مسائل</p>
+    </div>
+
+    <div class="card reveal">
+        <span class="tag">Water</span>
+        <h3>Water Supply</h3>
+        <p class="urdu">پانی کی کمی اور فراہمی کے مسائل</p>
+    </div>
+
+    <div class="card reveal">
+        <span class="tag">Gas</span>
+        <h3>Gas Issues</h3>
+        <p class="urdu">گیس کی کمی یا کم پریشر</p>
+    </div>
+</div>
+</section>
+
+<!-- COMPLAINT FORM -->
+<section class="section" style="background:var(--light);">
+<div class="form-box reveal">
+<h2>Submit Complaint</h2>
+<form>
+<input type="text" placeholder="Full Name / نام">
+<input type="text" placeholder="Area / علاقہ">
+<select>
+<option>Complaint Type</option>
+<option>Electricity</option>
+<option>Water</option>
+<option>Gas</option>
+</select>
+<textarea rows="5" placeholder="Describe your complaint"></textarea>
+<button>Submit Complaint</button>
+</form>
+</div>
+</section>
+
+<!-- ABOUT US -->
+<section class="section" id="about">
+    <div class="reveal">
+        <h2>About Gwadar Digital Services | گوادر ڈیجیٹل سروسز</h2>
+
+        <h3 style="margin-top:2rem;">The Challenge | مسئلہ</h3>
+        <p>
+            Access to clean and sufficient water is a basic necessity, yet our city continues to face
+            serious water shortages, irregular supply, and delays in resolving water-related issues.
+            Many residents are required to visit offices repeatedly to apply for connections, request
+            water supply, or lodge complaints, making the process time-consuming and inefficient.
+        </p>
+
+        <p class="urdu">
+            صاف اور وافر پانی تک رسائی ایک بنیادی ضرورت ہے، اس کے باوجود ہمارے شہر کو پانی کی شدید قلت،
+            غیر منظم سپلائی، اور مسائل کے حل میں تاخیر کا سامنا ہے۔ بہت سے رہائشیوں کو کنکشن، پانی کی درخواست،
+            یا شکایت درج کرانے کے لیے بار بار دفاتر کا چکر لگانا پڑتا ہے، جو ایک وقت طلب اور غیر مؤثر عمل ہے۔
+        </p>
+
+        <h3 style="margin-top:2rem;">Our Mission | ہمارا مشن</h3>
+        <p>
+            Our mission is to simplify and digitize water-related public services through a single,
+            easy-to-use online platform. By leveraging technology, we aim to reduce unnecessary physical
+            visits, paperwork, and service delays while improving transparency and efficiency.
+        </p>
+
+        <p class="urdu">
+            یہ پلیٹ فارم عوام کے لیے پانی کی خدمات کو سادہ اور ڈیجیٹلائز کرنے کے لیے بنایا گیا ہے۔
+            ہمارا مقصد ایک واحد، استعمال میں آسان آن لائن نظام فراہم کرنا ہے جہاں شہری گھر بیٹھے
+            پانی سے متعلق ضروری خدمات حاصل کر سکیں۔
+        </p>
+
+        <h3 style="margin-top:2rem;">What We Offer | ہماری پیشکش</h3>
+        <ul style="margin-left:1.2rem;">
+            <li>Online application for new water connections</li>
+            <li>Facility to request water supply</li>
+            <li>Simple system to submit and track water-related complaints</li>
+        </ul>
+
+        <ul class="urdu" style="margin-top:1rem;">
+            <li>نئے پانی کے کنکشن کے لیے آن لائن درخواست</li>
+            <li>پانی کی سپلائی کے لیے درخواست کی سہولت</li>
+            <li>پانی کی قلت یا سروس کے مسائل سے متعلق شکایات درج کرنے اور ٹریک کرنے کا نظام</li>
+        </ul>
+    </div>
+</section>
+```
+
+
+<!-- CONTACT -->
+<section class="section" id="contact" style="background:var(--light);">
+<div class="form-box reveal">
+<h2>Contact Us</h2>
+<form>
+<input type="text" placeholder="Your Name">
+<input type="email" placeholder="Email Address">
+<textarea rows="5" placeholder="Your Message"></textarea>
+<button>Send Message</button>
+</form>
+</div>
+</section>
+
+<footer>
+<p>&copy; 2026 Gwadar District Administration | Empowering Citizens</p>
+</footer>
+
+<script>
+const reveals = document.querySelectorAll('.reveal');
+window.addEventListener('scroll', () => {
+    reveals.forEach(el => {
+        const top = el.getBoundingClientRect().top;
+        if (top < window.innerHeight - 100) {
+            el.classList.add('active');
+        }
+    });
+});
+
+const slides = document.querySelectorAll('.hero-slide');
+const dots = document.querySelectorAll('.slider-dots span');
+let currentSlide = 0;
+
+function showSlide(index) {
+    slides.forEach((slide, i) => {
+        slide.classList.toggle('active', i === index);
+        dots[i].classList.toggle('active', i === index);
+    });
+    currentSlide = index;
+}
+
+// Auto slide
+setInterval(() => {
+    let next = (currentSlide + 1) % slides.length;
+    showSlide(next);
+}, 5000);
+
+// Manual dots control
+dots.forEach((dot, index) => {
+    dot.addEventListener('click', () => {
+        showSlide(index);
+    });
+});
+</script>
+
 </body>
 </html>
